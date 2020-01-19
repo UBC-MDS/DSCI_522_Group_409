@@ -43,8 +43,8 @@ Rua Dr. Roberto Frias, 378 4200 - 465 Porto, Portugal
 > Original Source: http://capitalbikeshare.com/system-data 
 > Weather Information: http://www.freemeteo.com 
 > Holiday Schedule: http://dchr.dc.gov/page/holiday-schedule
-
-
+  
+  
 ## 2. Research Question
 
 Demand forecasting is an important aspect for many companies in carrying out their operations. In our case, with the help of demand forecasting, bike rental company can perform many tasks such as inventory management (no. of bikes), man power management etc. Such planning will result in making operations efficient and effective. Planning and forecasting can help in facing the sudden challenges and problems in a much better way.
@@ -63,6 +63,13 @@ There are many other areas that we can explore around our main research question
 ## 3. Methodology
 
 In order to answer our main research question, we are planning to explore different machine learning algorithms. The data shared by the Bike Rider Company is quite cleaned and does not require much data manipulation. Since our problem is `regression`, we can potentially work with `linear regression`, `KNN`, `Random Forest`, `SVR` and few other similar models. We have selected `mean squared error` as the criteria to select the best model among the selected models.      
-
+  
+  
+## 4. Exploratory data analysis 
 In the [EDA File](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA.ipynb), we have checked if there is any null values present in the data. Moreover, we have done data profiling and get the statistical information such as mean, median, min, max and quartiles of the continuous variables of the data. We have also built many visualizations such as heat maps and point graphs to deep dive into the data.      
 
+In order to make exploratory data analysis in the EDA we present a table for the matrix of correlations, where we find which variables are related with each other, as well as the explanatory variables with higher correlation with the target variable (number of bike rented), standing out the temperature and hour of the day. One of the most interesting figures is related with the analysis of temperature on bike rental count, which in short shows how the demand for bikes increases when weather is warmer and decreases when the temperatures is lower.
+  
+  
+## 5. Presentation of results
+We could share the results of the analysis in differnt formats in function of the type of information:  while we will present in tables the results from the comparison of the different models that can potentially work (`linear regression`, `KNN`, `Random Forest`, `SVR`, among others), we also will present plots and figures as part of our analysis and results to explain and backup model to forcast the future demand of bike rentals.
