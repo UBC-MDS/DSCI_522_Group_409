@@ -5,9 +5,6 @@
 
 [Group Project Repo Link](https://github.com/UBC-MDS/DSCI_522_Group_409)
 
-## Proposal
----
-
 ## 1. Dataset
 
 The dataset we are using to build a machine learning model is the bike sharing dataset from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset). It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. For this project, only the hourly data is used.
