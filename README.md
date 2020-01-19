@@ -40,9 +40,7 @@ The command to download the data is as follows:
 
 The file path can be changed according to the desired path.
 
-This dataset is obtained from the University of California Irvine Machine learning Repository [1]. 
-
-The dataset used in this project is created by Dr.Hadi Fanaee-T at Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto. It was sourced from the UCI Machine Learning Repository and can be found [here](https://archive.ics.uci.edu/ml/machine-learning-databases/00275/).
+The dataset used in this project is created by Dr.Hadi Fanaee-T at Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto. It was sourced from the UCI Machine Learning Repository and can be found [here](https://archive.ics.uci.edu/ml/machine-learning-databases/00275/).[1]
   
 ## 2. Research Question
 
