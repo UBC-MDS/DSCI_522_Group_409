@@ -71,7 +71,7 @@ In order to make exploratory data analysis in the EDA we present a table for the
   
   
 ## 5. Presentation of results
-We could share the results of the analysis in differnt formats in function of the type of information:  while we will present in tables the results from the comparison of the different models that can potentially work (`linear regression`, `KNN`, `Random Forest`, `SVR`, among others). We will select our final model and re-fit the model on the train set and evaluate the performance on the test set. The results of both train and test accurary for the final model will be reported as a table in our final report. We will also present plots and figures as part of our analysis and results in the final report to explain and backup model to forcast the future demand of bike rentals.
+We could share the results of the analysis in different formats in function of the type of information:  while we will present in tables the results from the comparison of the different models that can potentially work (`linear regression`, `KNN`, `Random Forest`, `SVR`, among others). We will select our final model and re-fit the model on the train set and evaluate the performance on the test set. The results of both train and test accurary for the final model will be reported as a table in our final report. We will also present plots and figures as part of our analysis and results in the final report to explain and backup model to forcast the future demand of bike rentals.
 
 
 ## References 
