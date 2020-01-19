@@ -20,10 +20,10 @@ The dataset has 1 target `cnt` and 16 features, including both time and weather-
 8. `weekday`: Day of the week (starting from 0: Sunday)
 9. `workingday`: (0: No, 1: Yes)
 10. `weathersit`: 
-  1: Clear, Few clouds, Partly cloudy, Partly cloudy
-  2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist
-  3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds
-  4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog)
+  - 1: Clear, Few clouds, Partly cloudy, Partly cloudy. 
+  - 2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist. 
+  - 3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds. 
+  - 4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog)
 11. `temp`: Normalized temperature in Celsius.
 12. `atemp`: Normalized feeling temperature in Celsius. 
 13. `hum`: Normalized humidity.
