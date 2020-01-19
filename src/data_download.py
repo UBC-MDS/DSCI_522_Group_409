@@ -2,7 +2,7 @@
 # date: 2020-01-17
 
 '''This script downloads the data from the input URL. This script takes a filepath
-and save the file.
+and save the file in the desired folder.
 
 Usage: data_download.py --file_url=<file_url> --file_path=<file_path>
 
