@@ -47,11 +47,11 @@ Rua Dr. Roberto Frias, 378 4200 - 465 Porto, Portugal
 
 ## 2. Research Question
 
-Demand forecast is an important aspect for many companies in carrying out their operations. In our case, with the help of demand forecasting, bike rental company can perform many tasks such as inventory management (no. of bikes), man power management etc. Such planning will result in making operations efficient and effective. Planning and forecasting can help in facing the sudden challenges and problems in a much better way.
+Demand forecasting is an important aspect for many companies in carrying out their operations. In our case, with the help of demand forecasting, bike rental company can perform many tasks such as inventory management (no. of bikes), man power management etc. Such planning will result in making operations efficient and effective. Planning and forecasting can help in facing the sudden challenges and problems in a much better way.
 
-The main research question of our proposal is around building such demand forecasting model, which is as follows.
+The main research question of our proposal is to build an effective demand forecasting model and the question is as follows.
 
-- **Given the information shared by Bike share company, can we predict the count of bike rentals on hourly basis in order to forecast the future demand?**
+- **Given the information shared by Bike share company, can we predict the count of bike rentals on hourly basis in order to forecast the future demand of bike rentals?**
 
 There are many other areas that we can explore around our main research question. We would to know what are the strong predictors that can help in predicting the future demand for the bike rentals. Through EDA, we are trying to see the the trend of count of bike rentals with hr, weekday and temperature.
 
@@ -62,7 +62,7 @@ There are many other areas that we can explore around our main research question
 
 ## 3. Methodology
 
-In order to answer our main research question, we are planning to explore different machine learning algorithms. The data shared by the Bike Rider Company is quite cleaned and does not require much data manipulation. Since our problem is `regression`, we can potentially work with linear regression, KNN, Random Forest and SVR. We have selected `mean squared error` as the criteria to select the best model among the selected models.      
+In order to answer our main research question, we are planning to explore different machine learning algorithms. The data shared by the Bike Rider Company is quite cleaned and does not require much data manipulation. Since our problem is `regression`, we can potentially work with `linear regression`, `KNN`, `Random Forest`, `SVR` and few other similar models. We have selected `mean squared error` as the criteria to select the best model among the selected models.      
 
 In the [EDA File](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA.ipynb), we have checked if there is any null values present in the data. Moreover, we have done data profiling and get the statistical information such as mean, median, min, max and quartiles of the continuous variables of the data. We have also built many visualizations such as heat maps and point graphs to deep dive into the data.      
 
