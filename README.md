@@ -42,24 +42,17 @@ The file path can be changed according to the desired path.
 
 This dataset is obtained from the University of California Irvine Machine learning Repository [1]. 
 
-> References 
->[1] Hadi Fanaee-T 
-> Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto, Campus da FEUP 
-Rua Dr. Roberto Frias, 378 4200 - 465 Porto, Portugal 
-> Original Source: http://capitalbikeshare.com/system-data 
-> Weather Information: http://www.freemeteo.com 
-> Holiday Schedule: http://dchr.dc.gov/page/holiday-schedule
-  
+The dataset used in this project is created by Dr.Hadi Fanaee-T at Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto. It was sourced from the UCI Machine Learning Repository and can be found [here](https://archive.ics.uci.edu/ml/machine-learning-databases/00275/).
   
 ## 2. Research Question
 
 Demand forecasting is an important aspect for many companies in carrying out their operations. In our case, with the help of demand forecasting, bike rental company can perform many tasks such as inventory management (no. of bikes), man power management etc. Such planning will result in making operations efficient and effective. Planning and forecasting can help in facing the sudden challenges and problems in a much better way.
 
-The main research question of our proposal is to build an effective demand forecasting model and the question is as follows.
+The main research question of our proposal is to build an effective demand forecasting model and the predictive question is as follows.
 
 - **Given the information shared by Bike share company, can we predict the count of bike rentals on hourly basis in order to forecast the future demand of bike rentals?**
 
-There are many other areas that we can explore around our main research question. We would to know what are the strong predictors that can help in predicting the future demand for the bike rentals. Through EDA, we are trying to see the the trend of count of bike rentals with hr, weekday and temperature.
+There are many other areas that we can explore around our main research question. We would to know what are the strong predictors that can help in predicting the future demand for the bike rentals(i.e. predictive question). Through EDA, we are trying to see the the trend of count of bike rentals with hr, weekday and temperature.
 
 <p align="center">
 <img src="img/bike_rental.jpg" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" height= "400" width= "400" align="middle"/>
@@ -68,8 +61,10 @@ There are many other areas that we can explore around our main research question
 
 ## 3. Methodology
 
-In order to answer our main research question, we are planning to explore different machine learning algorithms. The data shared by the Bike Rider Company is quite cleaned and does not require much data manipulation. Since our problem is `regression`, we can potentially work with `linear regression`, `KNN`, `Random Forest`, `SVR` and few other similar models. We have selected `mean squared error` as the criteria to select the best model among the selected models.      
-  
+In order to answer our main research question, we are planning to explore different machine learning algorithms. Before building our machine learning models, we will split the data into train and test sets (i.e. 80% train, 20% test) and perform exploratory data analysis to explore whether any features that are not related to our questions or similar with another feature so that we can remove them from our analysis.
+
+The data shared by the Bike Rider Company is quite cleaned and does not require much data manipulation. Since our problem is `regression`, we can potentially work with `linear regression`, `KNN`, `Random Forest`, `SVR` and few other similar models. We have selected `mean squared error` as the criteria to select the best model among the selected models.      
+
   
 ## 4. Exploratory data analysis 
 In the [EDA File](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA.ipynb), we have checked if there is any null values present in the data. Moreover, we have done data profiling and get the statistical information such as mean, median, min, max and quartiles of the continuous variables of the data. We have also built many visualizations such as heat maps and point graphs to deep dive into the data.      
@@ -78,4 +73,13 @@ In order to make exploratory data analysis in the EDA we present a table for the
   
   
 ## 5. Presentation of results
-We could share the results of the analysis in differnt formats in function of the type of information:  while we will present in tables the results from the comparison of the different models that can potentially work (`linear regression`, `KNN`, `Random Forest`, `SVR`, among others), we also will present plots and figures as part of our analysis and results to explain and backup model to forcast the future demand of bike rentals.
+We could share the results of the analysis in differnt formats in function of the type of information:  while we will present in tables the results from the comparison of the different models that can potentially work (`linear regression`, `KNN`, `Random Forest`, `SVR`, among others). We will select our final model and re-fit the model on the train set and evaluate the performance on the test set. The results of both train and test accurary for the final model will be reported as a table in our final report. We will also present plots and figures as part of our analysis and results in the final report to explain and backup model to forcast the future demand of bike rentals.
+
+
+## References 
+>[1] Hadi Fanaee-T  
+> Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto, Campus da FEUP 
+Rua Dr. Roberto Frias, 378 4200 - 465 Porto, Portugal  
+> Original Source: http://capitalbikeshare.com/system-data  
+> Weather Information: http://www.freemeteo.com  
+> Holiday Schedule: http://dchr.dc.gov/page/holiday-schedule 
