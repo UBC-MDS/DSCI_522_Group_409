@@ -34,6 +34,12 @@ The dataset has 1 target `cnt` and 16 features, including both time and weather-
 
 The dataset could be downloaded using the [data_download.py script](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/src/data_download.py) in our repository. Data splitting is also done in this download script.
 
+The command to download the data is as follows:
+
+`python3.6 data_download.py --file_url="https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip" --file_path="home/project/data"`
+
+The file path can be changed according to the desired path.
+
 This dataset is obtained from the University of California Irvine Machine learning Repository [1]. 
 
 > References 
