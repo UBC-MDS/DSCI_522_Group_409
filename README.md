@@ -56,7 +56,7 @@ The main research question of our proposal is around building such demand foreca
 There are many other areas that we can explore around our main research question. We would to know what are the strong predictors that can help in predicting the future demand for the bike rentals. Through EDA, we are trying to see the the trend of count of bike rentals with hr, weekday and temperature.
 
 <p align="center">
-<img src="img/bikerental.jpg" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" height= "400" width= "400" align="middle"/>
+<img src="img/bike_rental.jpg" alt="Markdown Monster icon" style="float: left; margin-right: 10px;" height= "400" width= "400" align="middle"/>
 </p>
 
 
