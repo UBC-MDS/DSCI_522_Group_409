@@ -53,39 +53,30 @@ def main(input_file, output_path):
     table_descr.to_csv(output_path + "/tab_1.csv", index = True)
     
     # 3.2.1 Printing description
-    print("The dataframe columns are: ", list(bike_data.columns), "\n")
-
+    print("\nThe dataframe columns are: ", list(bike_data.columns))
     month_list = sorted(list(bike_data['mnth'].unique()))
+    print("\nGeneral information about the dataset:")
     print("- The month ranges from {0} to {1}, which represents the {2} months of the year.".format(month_list[0],
           month_list[-1],
-          len(month_list)),"\n")
-    
+          len(month_list)))
     hour_list = sorted(list(bike_data['hr'].unique()))
     print("- The hour ranges from {0} to {1}, that represents the {2} hours of the day.".format(hour_list[0],
           hour_list[-1],
-          len(hour_list)),"\n")
-    
-    print("- The holiday type contains: ", list(bike_data['holiday'].unique()),"\n")
-    
+          len(hour_list)))
+    print("- The holiday type contains: ", list(bike_data['holiday'].unique()))
     weekdays = sorted(list(bike_data['weekday'].unique()))
-    print("- The weekday type contains: ", weekdays,"\n")
-    
-    print("- The workingday type contains: ", sorted(list(bike_data['workingday'].unique())),"\n")
-
-    print("- The weather type contains: ", list(bike_data['weathersit'].unique()),"\n")
-    
+    print("- The weekday type contains: ", weekdays)
+    print("- The workingday type contains: ", sorted(list(bike_data['workingday'].unique())))
+    print("- The weather type contains: ", list(bike_data['weathersit'].unique()))
     temp_list = sorted(list(bike_data['temp'].unique()))
     print("- The normalized tempereature ranges from {0} to {1}".format(temp_list[0],
-          temp_list[-1]), "\n")
-    
+          temp_list[-1]))
     hum_list = sorted(list(bike_data['temp'].unique()))
     print("- The normalized humidity ranges from {0} to {1}".format(hum_list[0],
-          hum_list[-1]), "\n")
-    
+          hum_list[-1]))
     wind_list = sorted(list(bike_data['windspeed'].unique()))
     print("- The normalized windspeed ranges from {0} to {1}".format(wind_list[0],
-          wind_list[-1]), "\n")
-    
+          wind_list[-1]))
     cnt_list = sorted(list(bike_data['cnt'].unique()))
     print("- The target count of bike rentals ranges from {0} to {1}".format(cnt_list[0],
           cnt_list[-1]), "users.\n")
@@ -151,7 +142,7 @@ def main(input_file, output_path):
                                     legend=alt.Legend(title = "counts")),
                     tooltip=['weekday', 'hr', 'cnt']
                 ).properties(title = "Count of bike rental by Hour and Day in Washington, DC")
-    heat_map.save(output_path + "/fig_3_temp.png", scale_factor=2.0)
+    heat_map.save(output_path + "/fig_3_hr.png", scale_factor=2.0)
     
     # 7.3 Analysis of weather and humidity on demand for rental bikes
     chart_weather = alt.Chart(bike_data).mark_point(opacity=0.5, size = 4).encode(
