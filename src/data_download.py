@@ -32,25 +32,25 @@ def main(file_url, file_path):
     z = zipfile.ZipFile(io.BytesIO(r.content))
     z.extractall(path = file_path)
 
-    input_file_path = file_path + "/hour.csv"
+    #input_file_path = file_path + "/hour.csv"
 
     #read the data
     
 
-    rental_input_data_hr = pd.read_csv(input_file_path)
+    #rental_input_data_hr = pd.read_csv(input_file_path)
 
     # split into training and testing
 
-    X_train, X_test, y_train, y_test = train_test_split(rental_input_data_hr.drop(columns=['cnt']), 
-                                                    rental_input_data_hr[['cnt']], 
-                                                    test_size=0.20, 
-                                                    random_state=100)
+    #X_train, X_test, y_train, y_test = train_test_split(rental_input_data_hr.drop(columns=['cnt']), 
+    #                                                rental_input_data_hr[['cnt']], 
+    #                                                test_size=0.20, 
+    #                                                random_state=100)
 
     # save the splitted files
-    X_train.to_csv(file_path +  "/train.csv", index=False)
-    X_test.to_csv(file_path +  "/test.csv", index=False)
-    y_train.to_csv(file_path + "/train_target.csv", index=False)
-    y_test.to_csv(file_path  + "/test_target.csv", index=False)
+    #X_train.to_csv(file_path +  "/train.csv", index=False)
+    #X_test.to_csv(file_path +  "/test.csv", index=False)
+    #y_train.to_csv(file_path + "/train_target.csv", index=False)
+    #y_test.to_csv(file_path  + "/test_target.csv", index=False)
 
     
 def check_file(file_path):
