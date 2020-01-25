@@ -4,7 +4,7 @@
 '''This script downloads the data from the input URL. This script takes a filepath
 and save the file in the desired folder.
 
-Usage: data_download.py --file_url=<file_url> --file_path=<file_path>
+Usage: src/data_download.py --file_url=<file_url> --file_path=<file_path>
 
 Options:
 --file_url=<file_url>  URL that contains the input file
