@@ -114,7 +114,7 @@ University of California, Irvine, School of Information and Computer
 Sciences.
 <http://archive.ics.uci.edu/ml>
 </div>
-
+<br>
 <div id="ref-hadi">
 Fanaee-T, Hadi. 2013. “Bike Sharing Dataset Data Set.” University of
 Porto, INESC Porto, Campus da FEUP, Rua Dr. Roberto Frias, 378, 4200 -
@@ -122,30 +122,30 @@ Porto, INESC Porto, Campus da FEUP, Rua Dr. Roberto Frias, 378, 4200 -
 Support (LIAAD); Machine, Learning Repository, UCI.  
 <https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset>
 </div>
-
+<br>
 <div id="ref-docopt">
 Keleshev, Vladimir. 2014. docopt: Command-line interface description 
 language. Python package version 0.6.2}.
 <https://github.com/docopt/docopt>
 </div>
-
+<br>
 <div id="ref-pandas">
 McKinney, Wes and others. 2010. Pandas. Data structures for statistical 
 computing in python, Proceedings of the 9th Python in Science Conference}, 
 volume 445, pages 51--56, Austin, TX.
 </div>
-
+<br>
 <div id="ref-numpy">
 Oliphant, Travis E. 2006. A guide to NumPy. Volume=1, publisher Trelgol 
 Publishing, USA.
 </div>
-
+<br>
 <div id="ref-altair">
 Pedregosa, F., Varoquaux, G., Et Al. 2011. Scikit-learn: Machine 
 Learning in Python. Journal of Machine Learning Research, volume 12, 
 pages 2825--2830.
 </div>
-
+<br>
 <div id="ref-altair">
 VanderPlas, J., Granger, B., Et All. 2018. Altair: Interactive
 Statistical Visualizations for Python. The Journal of Open Source 
