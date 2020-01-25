@@ -24,20 +24,19 @@ Here we ask whether we can predict the count of bike rentals on hourly basis in 
 ## Data
 The dataset we are using to build a machine learning model is the bike sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset.The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. 
 
-The dataset is created by Dr.Hadi Fanaee-T at Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto [@hadi]. It was sourced from the UCI Machine Learning Repository [@uic_mlr] and can be found [here](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
+The dataset was created by Dr. Hadi @hadi from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), at the @uic_repo.
 
-We have performed an explanatory data analysis, the full report can be found [here](https://github.com/doraqmon/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). We  built the some visualizations to deep dive the data. In our analysis, we found the relationships between different variables, as well as the explanatory variables with higher correlation with the target variable (number of bike rented). As we can see from the plot below, the demand for bikes increases when weather is warmer and decreases when the temperatures is lower.
-
-
+We have performed an explanatory data analysis (EDA), the full report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). In this analysis we  built some visualizations to deep dive the data and found the relationships between different variables, as well as the explanatory variables with higher correlation with the target variable (number of bike rented). As we can see from the plot below, the demand for bikes increases when weather is warmer and decreases when the temperatures is lower.
+  
 <div class="figure">
-<img src="../img/fig_2_temp.png" alt="ddd" width="50%" />
-<p class="caption">ddd</p>
+<img src="../img/fig_2_temp.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+<p class="caption">Figure 1. Analysis of temperatures by weekday</p>
 </div>
 
-
+<br>
 <div class="figure">
-<img src="../img/fig_3_hr.png" alt="ddd" width="60%" />
-<p class="caption">ddd</p>
+<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+<p class="caption">Figure 2. Analysis per hour and weekday</p>
 </div>
 
 ## Analysis
@@ -47,9 +46,9 @@ We have performed an explanatory data analysis, the full report can be found [he
 
 # Results & Discussion
 
-To make the prediction model, it is required to test different models and check which model fits best. There are several methods available to check which model is best suited for the bike rental data. For this problem, we have used `mean_squared_error` and calculated the eror for both training and testing error as shown below. Moreover, we have also tuned hyperparameters to get the best model with best hyperparameters.   
-<table>
-<caption>Table 1. Training and Testing error for k-nearest neighbors, RandomForest and Linear Regression</caption>
+To make the prediction model, it is required to test different models and check which model fits best. There are several methods available to check which model is best suited for the bike rental data. For this problem, we have used `mean_squared_error` and calculated the error for both training and testing error as shown below. Moreover, we have also tuned hyperparameters to get the best model with best hyperparameters.   
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Table 1. Training and Testing error for k-nearest neighbors, RandomForest and Linear Regression.</caption>
  <thead>
   <tr>
    <th style="text-align:right;"> index </th>
@@ -89,20 +88,20 @@ As we can see above, `Random Forest` is the best model with minimum training and
 It is possible to see the feature importance through random forest regression. We have plotted the feature importance for all the features as shown below.
 
 <div class="figure">
-<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors" width="100%" />
-<p class="caption">Figure 3: The plot for importance for predictors</p>
+<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
+<p class="caption">Figure 3: The plot for importance for predictors.</p>
 </div>
 
-`hr` is the most important feature to make prediction for the bike ridership. The second most important feature is temperature. It is also interesting to know, if it is a working day or not also matters in predicting number of bike rentals.
+The variable `hr` is the most important feature to predict bike ridership. The second most important feature is temperature. It is also interesting to know if it is a working day or not which also matters in predicting number of bike rentals.
 
 In order to visualise the results, we also plotted the point graph between actual rides and predicted rides. The predicted rides are from test data set using the best model i.e `Random Forest`   
 
 <div class="figure">
-<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="100%" />
+<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
 <p class="caption">Figure 4: The plot for predicted and actual rides</p>
 </div>
 
-The relationship is looking very linear which means predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features.   
+The relationship is looking very linear which means that predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features.   
 
 
 # References
