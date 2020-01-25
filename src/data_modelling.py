@@ -4,14 +4,12 @@
 '''This script runs the model on training data. This script takes a filepath of the 
 training data and save the output in the desired folder.
 
-Usage: data_modelling.py --input_file_path=<input_file_path> --output_file_path=<output_file_path>
+Usage: src/data_modelling.py --input_file_path=<input_file_path> --output_file_path=<output_file_path>
 
 Options:
 --input_file_path=<input_file_path>  Path (excluding filename) to the folder
 --output_file_path=<output_file_path>  Path (excluding filename) to the folder.
 '''
-
-#python3.6 data_modelling.py --input_file_path=C:/Users/gargk/Documents/GitHub/DSCI_522_Group_409/data --output_file_path=C:/Users/gargk/Documents/GitHub/DSCI_522_Group_409/result
 
 import os
 import ast
