@@ -5,6 +5,7 @@ date: "24/01/2020 (updated: `r Sys.Date()`)"
 always_allow_html: true
 output: 
   html_document:
+    keep_md: true
     toc: true
 bibliography: references.bib
 ---
@@ -20,10 +21,28 @@ library(caret)
 # Summary
 
 # Introduction
+Demand forecasting is an important aspect for many companies in carrying out their operations. In our case, with the help of demand forecasting, bike rental company can perform many tasks such as inventory management (no. of bikes), man power management etc. Such planning will result in making operations efficient and effective. Planning and forecasting can help in facing the sudden challenges and problems in a much better way.
+
+Here we ask whether we can predict the count of bike rentals on hourly basis in order to forecast the furture demand of bike rentals given the information shared by Bike Share Company. Also, we want to find the strong predictors that can help in predicting the future demand for the bike rentals. 
 
 # Methods
 
 ## Data
+The dataset we are using to build a machine learning model is the bike sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset.The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. 
+
+The dataset is created by Dr.Hadi Fanaee-T at Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto INESC Porto [@hadi]. It was sourced from the UCI Machine Learning Repository [@uic_mlr] and can be found [here](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
+
+We have performed an explanatory data analysis, the full report can be found [here](https://github.com/doraqmon/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). We  built the some visualizations to deep dive the data. In our analysis, we found the relationships between different variables, as well as the explanatory variables with higher correlation with the target variable (number of bike rented). As we can see from the plot below, the demand for bikes increases when weather is warmer and decreases when the temperatures is lower.
+
+
+```{r, echo=FALSE, fig.cap="ddd", out.width = '50%'}
+knitr::include_graphics("../img/fig_2_temp.png")
+```
+
+
+```{r, echo=FALSE, fig.cap="ddd", out.width = '60%'}
+knitr::include_graphics("../img/fig_3_hr.png")
+```
 
 ## Analysis
 
