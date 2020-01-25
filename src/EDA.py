@@ -25,6 +25,10 @@ opt = docopt(__doc__)
 
 def main(input_file, output_path):
     
+    # 0. TEST output_path EXISTS
+    if not os.path.exists(output_path):
+        os.makedirs(output_path, exist_ok=True)
+    
     # 1. DESCRIBE THE DATASET
     # The dataset we chose is the Bike Sharing Dataset from 
     # UCI machine learning repository. This dataset contains
@@ -155,6 +159,6 @@ def main(input_file, output_path):
             cmap="GnBu").get_figure().savefig(output_path + "/fig_5_corr.png", dpi=400)
     
     # 8. REFERENCES
-    
+
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--output_path"])
