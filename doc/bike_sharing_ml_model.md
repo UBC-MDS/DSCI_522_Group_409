@@ -3,14 +3,6 @@ Bike Sharing Machine Learning Model
 Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian
 24/01/2020 (updated: 2020-01-25)
 
-  - [Summary](#summary)
-  - [Introduction](#introduction)
-  - [Methods](#methods)
-      - [Data](#data)
-      - [Analysis](#analysis)
-  - [Results & Discussion](#results-discussion)
-  - [References](#references)
-
 # Summary
 
 Here we attempt to build a regression machine learning model using the
@@ -62,7 +54,8 @@ found the relationships between different variables, as well as the
 explanatory variables with a higher correlation with the target variable
 (number of bikes rented). As we can see from Figure 1. below, the demand
 for bikes increases when the weather is warmer and decreases when the
-temperatures are lower.
+temperatures are
+lower.
 
 <div class="figure">
 
@@ -80,7 +73,8 @@ Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
 found that people use bike rentals mainly for work and school on
 weekdays showing the peak of the demand in two times of the day.
-Besides, people use rental bikes between 11 am and 4 pm during weekends.
+Besides, people use rental bikes between 11 am and 4 pm during
+weekends.
 
 <br>
 
@@ -115,7 +109,7 @@ from (Pedregosa et al. 2011)
 
 All variables included in the original dataset, except `instant`,
 `dteday`, `yr`, `casual` and `registered`, were used to fit the training
-data. The hyperparameters (i.e. ‘max\_depth’ and ‘n\_estimators’) were
+data. The hyperparameters (i.e. ‘max\_depth’ and ‘n\_estimators’) were
 chosen used 5-fold cross-validation with mean squared error as the
 regression metric.
 
@@ -301,7 +295,8 @@ tuning, we get max depth as 10 and the number of estimators as 100.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
-as shown below.
+as shown
+below.
 
 <div class="figure">
 
@@ -322,7 +317,8 @@ predicting the number of bike rentals.
 
 In order to visualize the results, we also plotted the point graph
 between actual rides and predicted rides. The predicted rides are from
-test data set using the best model i.e `Random Forest`.
+test data set using the best model i.e `Random
+Forest`.
 
 <div class="figure">
 
@@ -350,7 +346,7 @@ better predictions.
 
 # References
 
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references">
 
 <div id="ref-docoptr">
 
@@ -446,7 +442,7 @@ Scotts Valley, CA: CreateSpace.
 Virtanen, Pauli, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler
 Reddy, David Cournapeau, Evgeni Burovski, et al. 2019. “SciPy
 1.0–Fundamental Algorithms for Scientific Computing in Python.” *arXiv
-E-Prints*, July, arXiv:1907.10121. <http://arxiv.org/abs/1907.10121>.
+E-Prints*, July, arXiv:1907.10121.
 
 </div>
 
