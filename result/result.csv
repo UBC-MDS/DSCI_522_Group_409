@@ -1,4 +1,4 @@
 model,train_error,test_error,best_param
 LinearRegression,147.9057714554423,145.6074628826,{'normalize': False}
 KNN,72.18612979250344,78.42565263284258,{'n_neighbors': 15}
-RandomForest,63.75519193906069,70.60650890398043,"{'max_depth': 10, 'n_estimators': 200}"
+RandomForest,63.86300083226405,70.83544333718204,"{'max_depth': 10, 'n_estimators': 100}"
