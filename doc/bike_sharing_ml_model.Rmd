@@ -4,8 +4,7 @@ author: "Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian"
 date: "24/01/2020 (updated: `r Sys.Date()`)"
 always_allow_html: true
 output: 
-  html_document:
-    keep_md: true
+  github_document: 
     toc: true
 bibliography: references.bib
 ---
