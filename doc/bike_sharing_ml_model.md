@@ -62,10 +62,19 @@ found the relationships between different variables, as well as the
 explanatory variables with a higher correlation with the target variable
 (number of bikes rented). As we can see from Figure 1. below, the demand
 for bikes increases when the weather is warmer and decreases when the
-temperatures are
-lower.
+temperatures are lower.
 
-<img src="../img/fig_2_temp.png" title="Figure 1. Analysis of temperatures by weekday" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+<div class="figure">
+
+<img src="../img/fig_2_temp.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+
+<p class="caption">
+
+Figure 1. Analysis of temperatures by weekday
+
+</p>
+
+</div>
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
@@ -74,7 +83,18 @@ weekdays showing the peak of the demand in two times of the day.
 Besides, people use rental bikes between 11 am and 4 pm during weekends.
 
 <br>
-<img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+
+<div class="figure">
+
+<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+
+<p class="caption">
+
+Figure 2. Analysis per hour and weekday
+
+</p>
+
+</div>
 
 ## Analysis
 
@@ -281,10 +301,19 @@ tuning, we get max depth as 10 and the number of estimators as 100.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
-as shown
-below.
+as shown below.
 
-<img src="../result/feature_importance.png" title="Figure 3: The plot for importance for predictors." alt="Figure 3: The plot for importance for predictors." width="85%" />
+<div class="figure">
+
+<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
+
+<p class="caption">
+
+Figure 3: The plot for importance for predictors.
+
+</p>
+
+</div>
 
 The variable `hr` is the most important feature to predict bike
 ridership. The second most important feature is `temp`. It is also
@@ -293,10 +322,19 @@ predicting the number of bike rentals.
 
 In order to visualize the results, we also plotted the point graph
 between actual rides and predicted rides. The predicted rides are from
-test data set using the best model i.e `Random
-Forest`.
+test data set using the best model i.e `Random Forest`.
 
-<img src="../result/fig_result.png" title="Figure 4: The plot for predicted and actual rides" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+<div class="figure">
+
+<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+
+<p class="caption">
+
+Figure 4: The plot for predicted and actual rides
+
+</p>
+
+</div>
 
 The relationship is looking very linear which means that predicted
 values are close to the actual values. The model can be used to predict
@@ -312,7 +350,7 @@ better predictions.
 
 # References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-docoptr">
 
