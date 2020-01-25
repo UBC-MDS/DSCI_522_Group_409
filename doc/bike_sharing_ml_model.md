@@ -11,6 +11,7 @@ Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian
   - [Results & Discussion](#results-discussion)
   - [References](#references)
 
+
 # Summary
 
 Here we attempt to build a regression machine learning model using the
@@ -36,6 +37,7 @@ on an hourly basis in order to forecast the future demand for bike
 rentals given the information shared by Bike Share Company. Also, we
 want to find strong predictors that can help in predicting the future
 demand for bike rentals.
+
 
 # Methods
 
@@ -75,6 +77,7 @@ Figure 1. Analysis of temperatures by weekday
 </p>
 
 </div>
+
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
@@ -130,7 +133,51 @@ Drake 2009), seaborn (Waskom 2020), kabelextra (Zhu 2019). The code used
 to perform the analysis and create this report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Group_409).
 
-# Results & Discussion
+
+<caption>
+
+Table 1. Training and Testing error for k-nearest neighbors,
+RandomForest and Linear Regression.
+
+</caption>
+
+<thead>
+
+<tr>
+
+<th style="text-align:right;">
+
+index
+
+</th>
+
+<th style="text-align:left;">
+
+Model
+
+</th>
+
+<th style="text-align:right;">
+
+Train.Error
+
+</th>
+
+<th style="text-align:right;">
+
+Test.Error
+
+</th>
+
+<th style="text-align:left;">
+
+Best.Parameters
+
+</th>
+
+</tr>
+
+</thead>
 
 To make the prediction model, it is required to test different models
 and check which model fits best. There are several methods available to
@@ -186,6 +233,7 @@ Best.Parameters
 </tr>
 
 </thead>
+
 
 <tbody>
 
@@ -470,6 +518,7 @@ Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
 Zhu, Hao. 2019. *KableExtra: Construct Complex Table with ’Kable’ and
 Pipe Syntax*.
 <https://cran.r-project.org/web/packages/kableExtra/index.html>.
+
 
 </div>
 
