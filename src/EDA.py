@@ -160,5 +160,22 @@ def main(input_file, output_path):
     
     # 8. REFERENCES
 
+def check_file(file_path):
+    """
+    Writing the text file and print success in the file
+    """
+    if not os.path.exists(file_path):
+        os.makedirs(file_path, exist_ok=True)
+    
+    file1 = open(file_path + "/success.txt","w")#write mode 
+    file1.write("Succes Download Figures") 
+    file1.close()
+    return os.path.isfile(file_path +  "/success.txt")
+    
+def test_error(file_path):
+    assert check_file(file_path), "Training file is not generated"
+
+test_error(opt["--output_path"])
+
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--output_path"])
