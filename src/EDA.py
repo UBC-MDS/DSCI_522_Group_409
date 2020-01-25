@@ -4,7 +4,7 @@
 '''This script takes a document with it's filepath and returns a file
 with the the Exploratory Data Analysis (EDA) in the desired folder.
 
-Usage: data_download.py --input_file=<input_file> --output_path=<output_path>
+Usage: src/EDA.py --input_file=<input_file> --output_path=<output_path>
 
 Options:
 --input_file=<input_file>  Path including the filename that contains the input file.
@@ -13,18 +13,13 @@ Options:
 
 import numpy as np
 import pandas as pd
-from pandas_profiling import ProfileReport
-import matplotlib.pyplot as plt
 import altair as alt
 import seaborn as sns
 pd.set_option("display.max_colwidth", 200)
-#%matplotlib inline
 alt.data_transformers.disable_max_rows()
 from scipy.stats import pearsonr
 from docopt import docopt
 import requests, io, os
-import matplotlib
-import matplotlib.pyplot as plt
 
 opt = docopt(__doc__)
 
