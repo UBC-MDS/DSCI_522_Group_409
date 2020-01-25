@@ -1,0 +1,32 @@
+---
+title: "Bike Sharing Machine Learning Model"
+author: "Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian"
+date: "24/01/2020 (updated: `r Sys.Date()`)"
+always_allow_html: true
+output: 
+  html_document:
+    toc: true
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(caret)
+```
+
+# Summary
+
+# Introduction
+
+# Methods
+
+## Data
+
+## Analysis
+
+# Results & Discussion
+
+# References
