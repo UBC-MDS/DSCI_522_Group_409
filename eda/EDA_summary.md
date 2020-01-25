@@ -3,12 +3,11 @@ Exploratory data analysis: Bike Sharing Dataset
 
 # Description
 
-The dataset we chose is the Bike Sharing Dataset from [UCI machine
-learning
-repository](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
-This dataset contains the hourly and daily count of rental bikes in 2011
-and 2012 in Capital bikeshare system in Washington, DC with the
-corresponding [weather](http://www.freemeteo.com) and [seasonal
+The dataset we chose is the Bike Sharing Dataset from UCI Machine
+Learning Repository (2017). This dataset contains the hourly and daily
+count of rental bikes in 2011 and 2012 in Capital bikeshare system in
+Washington, DC with the corresponding
+[weather](http://www.freemeteo.com) and [seasonal
 information](http://dchr.dc.gov/page/holiday-schedule). It is provided
 by Fanaee-T (2013) from the Laboratory of Artificial Intelligence and
 Decision Support (LIAAD), University of Porto.  
@@ -865,6 +864,14 @@ Porto, INESC Porto, Campus da FEUP, Rua Dr. Roberto Frias, 378, 4200 -
 465 Porto, Portugal: Laboratory of Artificial Intelligence; Decision
 Support (LIAAD); Machine, Learning Repository, UCI.
 <https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset>.
+
+</div>
+
+<div id="ref-uic_repo">
+
+UCI Machine Learning Repository. 2017. University of California, Irvine,
+School of Information; Computer Sciences.
+<http://archive.ics.uci.edu/ml>.
 
 </div>
 

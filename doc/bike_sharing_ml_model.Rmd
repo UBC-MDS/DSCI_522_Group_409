@@ -31,7 +31,7 @@ Here we ask whether we can predict the count of bike rentals on hourly basis in 
 ## Data
 The dataset we are using to build a machine learning model is the bike sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset.The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. 
 
-The dataset was created by Dr. Hadi @hadi from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), at the UCI Machine Learning Repository, and can be found [here](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
+The dataset was created by Dr. Hadi @hadi from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), at the @uic_repo.
 
 We have performed an explanatory data analysis (EDA), the full report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). In this analysis we  built some visualizations to deep dive the data and found the relationships between different variables, as well as the explanatory variables with higher correlation with the target variable (number of bike rented). As we can see from the plot below, the demand for bikes increases when weather is warmer and decreases when the temperatures is lower.
   

@@ -19,7 +19,7 @@ theme_set(theme_minimal())
 ```
 
 # Description
-The dataset we chose is the Bike Sharing Dataset from [UCI machine learning repository](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset). This dataset contains the hourly and daily count of rental bikes in 2011 and 2012 in Capital bikeshare system in Washington, DC with the corresponding [weather](http://www.freemeteo.com) and [seasonal information](http://dchr.dc.gov/page/holiday-schedule). It is provided by @hadi from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto.  
+The dataset we chose is the Bike Sharing Dataset from @uic_repo. This dataset contains the hourly and daily count of rental bikes in 2011 and 2012 in Capital bikeshare system in Washington, DC with the corresponding [weather](http://www.freemeteo.com) and [seasonal information](http://dchr.dc.gov/page/holiday-schedule). It is provided by @hadi from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto.  
 For the purpose of this project, we would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset.  
 <br>
 
