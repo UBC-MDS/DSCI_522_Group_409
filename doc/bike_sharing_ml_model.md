@@ -94,18 +94,19 @@ Figure 2. Analysis per hour and weekday
 
 The [Random Forest
 Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
-from (Pedregosa et al. 2011) was used as the final model to build a
-regression model to predict the count of bike rentals on an hourly
-basis. The original dataset has the categorical features preprocessed
-using label encoding and numerical features preprocessed using
+from Scikit-learn (Pedregosa et al. 2011) was used as the final model to
+build a regression model to predict the count of bike rentals on an
+hourly basis. The original dataset has the categorical features
+preprocessed using label encoding and numerical features preprocessed
+using
 [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)
-from (Pedregosa et al. 2011). In order to not violate the golden rule of
-machine learning, we decided to de-normalize the numerical features
-before train and test data splitting and apply feature scaling
-afterwards in our modelling process. We also changed `holiday` and
-`workingday` to
-[OneHotEncoding.](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
-from (Pedregosa et al. 2011)
+from Scikit-learn (Pedregosa et al. 2011). In order to not violate the
+golden rule of machine learning, we decided to de-normalize the
+numerical features before train and test data splitting and apply
+feature scaling afterwards in our modelling process. We also changed
+`holiday` and `workingday` to
+[OneHotEncoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
+from Scikit-learn.(Pedregosa et al. 2011)
 
 All variables included in the original dataset, except `instant`,
 `dteday`, `yr`, `casual` and `registered`, were used to fit the training
