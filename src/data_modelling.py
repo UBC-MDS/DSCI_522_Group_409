@@ -15,31 +15,12 @@ Options:
 
 import os
 import numpy as np
-import pickle
 import pandas as pd
 from docopt import docopt
 # classifiers / models
-from sklearn.linear_model import LinearRegression, LogisticRegression
-from sklearn.model_selection import ShuffleSplit
-from sklearn.svm import SVC, SVR
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.datasets import load_boston
-# Feature selection
-from sklearn.feature_selection import RFE
-
-from itertools import combinations
-from itertools import chain
-# data
-from sklearn import datasets
-from sklearn.datasets import make_friedman1
-
-# other
-from sklearn.metrics import log_loss, accuracy_score
-from collections import deque
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV, cross_val_score
-
-from sklearn.feature_extraction.text import CountVectorizer
 
 
 import altair as alt
@@ -58,10 +39,6 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.preprocessing import MinMaxScaler
 
 
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.model_selection import GridSearchCV
-from sklearn.pipeline import Pipeline, FeatureUnion, make_pipeline
 
 
 
