@@ -14,6 +14,7 @@ Options:
 #python3.6 data_modelling.py --input_file_path=C:/Users/gargk/Documents/GitHub/DSCI_522_Group_409/data --output_file_path=C:/Users/gargk/Documents/GitHub/DSCI_522_Group_409/result
 
 import os
+import ast
 import numpy as np
 import pandas as pd
 from docopt import docopt
@@ -146,8 +147,9 @@ def main(input_file_path, output_file_path):
 
     print ("Tuning Finish")
     data_result = data_result[['model','train_error','test_error','best_param']]
+    data_result.columns = ['Model','Train Error','Test Error','Best Parameters']
 
-
+    data_result.reset_index(inplace = True)
     data_result.to_csv(output_file_path + "/result.csv", index=False)
 
     data_combine_rf = data_combine.query("model == 'RandomForest'")
@@ -164,8 +166,21 @@ def main(input_file_path, output_file_path):
 
     chart.save(output_file_path + "/fig_result.png", scale_factor=2.0)
 
-    
+    res = ast.literal_eval(data_result.loc[2,"Best Parameters"])
 
+    model = RandomForestRegressor(max_depth = res['max_depth'], n_estimators = res['n_estimators'])
+    model.fit(X_train, y_train)
+    data_importance = pd.DataFrame({"Features":X_train.columns, "Feature Importance":model.feature_importances_})
+    
+    chart1 = alt.Chart(data_importance).mark_bar().encode(
+    x=alt.X('Feature Importance:Q'),
+    y=alt.Y('Features:O', sort=alt.EncodingSortField(field="Feature Importance", op="sum", order='descending'))
+    ).properties(title="Importance of Predictors for predicting bike riders",
+                    width=550, height=350, background='white').configure_axisX(labelFontSize=12,
+    titleFontSize=15).configure_axisY(labelFontSize=12,
+    titleFontSize=15).configure_title(fontSize=17)
+
+    chart1.save(output_file_path + "/feature_importance.png", scale_factor=2.0)
 
 
 def model_train(model,parameters,X_train, y_train, X_test, y_test):
