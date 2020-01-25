@@ -108,21 +108,21 @@ Statistical Visualizations for Python. The Journal of Open Source
 Software, volume 3, number 32.
 <http://idl.cs.washington.edu/papers/altair>
 </div>
-
+<br>
 <div id="ref-seaborn">
 Waskom, Michael. 2020. Seaborn: Statistical Data Visualization.
 <https://seaborn.pydata.org>
 </div>
-
+<br>
 <div id="ref-tidyverse">
 Wickham, Hadley. 2017. Tidyverse: Easily Install and Load the ’Tidyverse’. <https://CRAN.R-project.org/package=tidyverse>
 </div>
-
+<br>
 <div id="ref-knitr">
 Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research in R.” In Implementing Reproducible Computational Research, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC. 
 <http://www.crcpress.com/product/isbn/9781466561595>
 </div>
-
+<br>
 <div id="ref-kableExtra">
 Zhu, Hao. 2019. KableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax. <https://cran.r-project.org/web/packages/kableExtra/index.html>
 </div>
