@@ -11,22 +11,20 @@ Options:
 --output_path=<output_path>  Path (excluding filename) to the folder.
 '''
 
-import numpy as np #THIS
-import pandas as pd #THIS
-from pandas_profiling import ProfileReport #THIS
-import matplotlib.pyplot as plt
-import altair as alt #THIS
-from sklearn.model_selection import train_test_split
+import numpy as np
 import pandas as pd
+from pandas_profiling import ProfileReport
+import matplotlib.pyplot as plt
+import altair as alt
 import seaborn as sns
 pd.set_option("display.max_colwidth", 200)
 #%matplotlib inline
 alt.data_transformers.disable_max_rows()
 from scipy.stats import pearsonr
-from docopt import docopt #THIS
-import requests, io, os #THIS
-import matplotlib #THIS
-import matplotlib.pyplot as plt #THIS
+from docopt import docopt
+import requests, io, os
+import matplotlib
+import matplotlib.pyplot as plt
 
 opt = docopt(__doc__)
 
@@ -43,16 +41,10 @@ def main(input_file, output_path):
     bike_data = pd.read_csv(input_file)
 
     # 3. EXPLORE THE DATASET
-    # 3.1 Pandas profile report
-    # profile = ProfileReport(bike_data)
-    # DO WE SHOULD RETURN PANDAS PROFILE REPORT? PROBABLY NOT
-    
-    # 3.2 Other exploration
-    # bike_data.info()  # MAYBE WE DON'T NEED THIS ONE
     table_descr = bike_data.describe()
     table_descr.to_csv(output_path + "/tab_1.csv", index = True)
     
-    # 3.2.1 Printing description
+    # 3.1 Printing description
     print("\nThe dataframe columns are: ", list(bike_data.columns))
     month_list = sorted(list(bike_data['mnth'].unique()))
     print("\nGeneral information about the dataset:")
@@ -81,7 +73,7 @@ def main(input_file, output_path):
     print("- The target count of bike rentals ranges from {0} to {1}".format(cnt_list[0],
           cnt_list[-1]), "users.\n")
     
-    # 3.3 Checking the Null Values in the dataset
+    # 3.2 Checking the Null Values in the dataset
     sns.set(rc={'figure.figsize':(6,5)})
     chart_nulls = sns.heatmap(bike_data.isnull(), cmap='viridis', 
                       cbar=False).get_figure().savefig(output_path + "/fig_1_nulls.png")
@@ -94,14 +86,14 @@ def main(input_file, output_path):
     #   can be confusing to interpret.
     
     # 5. WRANGLING
-    # It will be done in a different script.
+    # Almost all the wran will be done in a different script.
     bike_data_2 = bike_data.groupby(['weekday', 'hr']).mean().reset_index()
     bike_data_2
     
     # 6. RESEARCH QUESTION
     # Main:
-    # Given the information shared by Bike share company, can we predict
-    # the count of bike rentals in order to forecast the future demand?
+    # - Given the information shared by Bike share company, can we predict
+    #   the count of bike rentals in order to forecast the future demand?
     #
     # Sub-question:
     # - Identify the strongest predictors that can help in predicting the 
@@ -166,12 +158,8 @@ def main(input_file, output_path):
     corrMatrix = bike_data.corr()
     sns.heatmap(corrMatrix, annot=True,
             cmap="GnBu").get_figure().savefig(output_path + "/fig_5_corr.png", dpi=400)
-    #heat_map_corr = sns.heatmap(corrMatrix, annot=True, cmap="GnBu")
-    # I NEED TO LOOK HOW TO SAV THE GRAPH
-    #heat_map_corr.save(output_path + "\fig_5_corr.png", scale_factor=2.0)
     
     # 8. REFERENCES
-    
     
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--output_path"])

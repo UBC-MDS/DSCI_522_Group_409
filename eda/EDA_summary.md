@@ -3,12 +3,15 @@ Exploratory data analysis: Bike Sharing Dataset
 
 # Description
 
-The dataset we chose is the Bike Sharing Dataset from repository (n.d.).
+The dataset we chose is the Bike Sharing Dataset from [UCI machine
+learning
+repository](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
 This dataset contains the hourly and daily count of rental bikes in 2011
 and 2012 in Capital bikeshare system in Washington, DC with the
-corresponding weather and seasonal information. It is provided by
-Fanaee-T (n.d.), Laboratory of Artificial Intelligence and Decision
-Support (LIAAD), University of Porto.  
+corresponding [weather](http://www.freemeteo.com) and [seasonal
+information](http://dchr.dc.gov/page/holiday-schedule). It is provided
+by Fanaee-T (2013) from the Laboratory of Artificial Intelligence and
+Decision Support (LIAAD), University of Porto.  
 For the purpose of this project, we would use the hourly dataset, which
 is more complete and have a greater number of observations than the
 daily dataset.  
@@ -757,17 +760,18 @@ any bike in that specific moment); for example, there is no data at 10
 am of January 2nd of 2012 (dteday=‘2012-01-02’, yr=10).  
 \- The real temperature (`temp`) and feeling temperature `atemp` are
 normalized with different scales, which can be confusing to interpret.  
-\- The original source of the data comes from the company Bikeshare
-(n.d.) which in their website have a section to download the files
-(n.d.) from September 2010 until November 2019. These files have the
-information rent with variables as day, time, bike id., start and end
-stations, and member type; however, these files don’t include other
-useful information as holidays, weather, temperature, humidity and wind
-speed that could affect the number of bike rentals and are included in
-the dataset that we are interested to use. For this reason, it would be
-better to work with the information retrieved from the [UCI machine
-learning
-repository](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset).
+\- The original source of the data comes from the company [Capital
+Bikeshare](http://capitalbikeshare.com/system-data) which in their
+website have a section to download the [bike rental
+files](https://s3.amazonaws.com/capitalbikeshare-data/index.html) from
+September 2010 until November 2019. These files have the information
+rent with variables as day, time, bike id., start and end stations, and
+member type; however, these files don’t include other useful information
+as holidays, weather, temperature, humidity and wind speed that could
+affect the number of bike rentals and are included in the dataset that
+we are interested to use. For this reason, it would be better to work
+with the information retrieved from the UCI machine learning repository
+by Fanaee-T (2013).
 
 # Research Questions
 
@@ -854,28 +858,12 @@ with a coefficient equals to -0.33
 
 <div id="refs" class="references">
 
-<div id="ref-original">
-
-Bikeshare, Capital. n.d. <http://capitalbikeshare.com/system-data>.
-
-</div>
-
 <div id="ref-hadi">
 
-Fanaee-T, Hadi. n.d. *Laboratory of Artificial Intelligence and Decision
-Support (Liaad)*. Porto, Portugal: University of Porto.
-
-</div>
-
-<div id="ref-orig_data">
-
-files. n.d. <https://s3.amazonaws.com/capitalbikeshare-data/index.html>.
-
-</div>
-
-<div id="ref-uic_mlr">
-
-repository, UCI machine learning. n.d.
+Fanaee-T, Hadi. 2013. “Bike Sharing Dataset Data Set.” University of
+Porto, INESC Porto, Campus da FEUP, Rua Dr. Roberto Frias, 378, 4200 -
+465 Porto, Portugal: Laboratory of Artificial Intelligence; Decision
+Support (LIAAD); Machine, Learning Repository, UCI.
 <https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset>.
 
 </div>
