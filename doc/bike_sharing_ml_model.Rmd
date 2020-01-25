@@ -74,6 +74,10 @@ In order to visualize the results, we also plotted the point graph between actua
 knitr::include_graphics("../result/fig_result.png")
 ```
 
-The relationship is looking very linear which means that predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features.   
+The relationship is looking very linear which means that predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features. 
+
+In order to improve our model further, we can perform more feature engineering and can potentially use One hot encoding instead of Label encoding on features such as week day and seasons. Then, we can check if there is an improvement in the training and testing errors. In addition, we can also explore other scoring criteria such as `mean absolute error` and `R squared` and see if these scoring techniques can help us make better predictions.
+
+
 
 # References
