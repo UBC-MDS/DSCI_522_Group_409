@@ -43,14 +43,14 @@ knitr::include_graphics("../img/fig_3_hr.png")
 ```
 
 ## Analysis
-The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding.](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from [@scikit]
+The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from Scikit-learn [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from Scikit-learn [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding.](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from Scikit-learn [@scikit]
 
 All variables included in the original dataset, except `instant`, `dteday`, `yr`, `casual` and `registered`, were used to fit the training data. The hyperparameters (i.e. ‘max_depth’ and ‘n_estimators’) were chosen used 5-fold cross-validation with mean squared error as the regression metric.
 
-The R [@r] and Python [@python] programming langues and the following R and Python packages were used to perform the analysis: caret [@caret], docop [@docoptr], knitr [@knitr], tidyverse [@tidyverse], pandas [@pandas], scikit-learn [@scikit], altair [@altair], scipy [@scipy], numpy [@numpy], docop [@docopt], os [@python], ast [@python], seaborn [@seaborn], kabelextra [@kable]. The code used to perform the analysis and create this report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409).
+The R [@r] and Python [@python] programming languages, as well as the following R and Python packages were used to perform the analysis: caret [@caret], docop [@docoptr], knitr [@knitr], tidyverse [@tidyverse], pandas [@pandas], scikit-learn [@scikit], altair [@altair], scipy [@scipy], numpy [@numpy], docop [@docopt], os [@python], ast [@python], seaborn [@seaborn], kabelextra [@kable]. The code used to perform the analysis and create this report can be retrieved [here](https://github.com/UBC-MDS/DSCI_522_Group_409).
 
 # Results & Discussion
-To make the prediction model, it is required to test different models and check which model fits best. There are several methods available to check which model is best suited for the bike rental data. For this problem, we have used `mean_squared_error` and calculated the error for both training and testing error as shown below. Moreover, we have also tuned hyperparameters to get the best model with the best hyperparameters.   
+To make the prediction model, it is required to test different models and compare their performance. There are several methods available to check which model is best suited for the bike rental data. For this problem, we have used `mean_squared_error` and calculated the error for both training and testing error as shown below. Moreover, we have also tuned hyperparameters to get the best model with the best hyperparameters.   
 
 ```{r model compare}
 results <- read.csv("../result/result.csv")
@@ -58,7 +58,7 @@ kable((results), caption = "Table 1. Training and Testing error for k-nearest ne
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
-As we can see above, `Random Forest` from [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get max depth as 10 and the number of estimators as 100. 
+As we can see above, `Random Forest` from Scikit-learn [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get max depth as 10 and the number of estimators as 100. 
 
 It is possible to see the feature importance through random forest regression. We have plotted the feature importance for all the features as shown below.
 
@@ -74,7 +74,7 @@ In order to visualize the results, we also plotted the point graph between actua
 knitr::include_graphics("../result/fig_result.png")
 ```
 
-The relationship is looking very linear which means that predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features. 
+The relationship follows a linear trend which means that the predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features.  
 
 In order to improve our model further, we can perform more feature engineering and can potentially use One hot encoding instead of Label encoding on features such as week day and seasons. Then, we can check if there is an improvement in the training and testing errors. In addition, we can also explore other scoring criteria such as `mean absolute error` and `R squared` and see if these scoring techniques can help us make better predictions.
 
