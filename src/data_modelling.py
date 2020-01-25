@@ -209,7 +209,9 @@ def check_file(file_path):
     """
     Writing the text file and print success in the file
     """
-    
+    if not os.path.exists(file_path):
+        os.makedirs(file_path, exist_ok=True)
+        
     file1 = open(file_path + "/success.txt","w")#write mode 
     file1.write("Succes Download") 
     file1.close()
