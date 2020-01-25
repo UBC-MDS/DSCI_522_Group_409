@@ -11,7 +11,6 @@ Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian
   - [Results & Discussion](#results-discussion)
   - [References](#references)
 
-
 # Summary
 
 Here we attempt to build a regression machine learning model using the
@@ -38,7 +37,6 @@ rentals given the information shared by Bike Share Company. Also, we
 want to find strong predictors that can help in predicting the future
 demand for bike rentals.
 
-
 # Methods
 
 ## Data
@@ -64,20 +62,10 @@ found the relationships between different variables, as well as the
 explanatory variables with a higher correlation with the target variable
 (number of bikes rented). As we can see from Figure 1. below, the demand
 for bikes increases when the weather is warmer and decreases when the
-temperatures are lower.
+temperatures are
+lower.
 
-<div class="figure">
-
-<img src="../img/fig_2_temp.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
-
-<p class="caption">
-
-Figure 1. Analysis of temperatures by weekday
-
-</p>
-
-</div>
-
+<img src="../img/fig_2_temp.png" title="Figure 1. Analysis of temperatures by weekday" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
@@ -86,18 +74,7 @@ weekdays showing the peak of the demand in two times of the day.
 Besides, people use rental bikes between 11 am and 4 pm during weekends.
 
 <br>
-
-<div class="figure">
-
-<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
-
-<p class="caption">
-
-Figure 2. Analysis per hour and weekday
-
-</p>
-
-</div>
+<img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
 
 ## Analysis
 
@@ -133,51 +110,7 @@ Drake 2009), seaborn (Waskom 2020), kabelextra (Zhu 2019). The code used
 to perform the analysis and create this report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Group_409).
 
-
-<caption>
-
-Table 1. Training and Testing error for k-nearest neighbors,
-RandomForest and Linear Regression.
-
-</caption>
-
-<thead>
-
-<tr>
-
-<th style="text-align:right;">
-
-index
-
-</th>
-
-<th style="text-align:left;">
-
-Model
-
-</th>
-
-<th style="text-align:right;">
-
-Train.Error
-
-</th>
-
-<th style="text-align:right;">
-
-Test.Error
-
-</th>
-
-<th style="text-align:left;">
-
-Best.Parameters
-
-</th>
-
-</tr>
-
-</thead>
+# Results & Discussion
 
 To make the prediction model, it is required to test different models
 and check which model fits best. There are several methods available to
@@ -233,7 +166,6 @@ Best.Parameters
 </tr>
 
 </thead>
-
 
 <tbody>
 
@@ -321,13 +253,13 @@ RandomForest
 
 <td style="text-align:right;">
 
-63.73418
+63.82754
 
 </td>
 
 <td style="text-align:right;">
 
-70.39487
+70.75675
 
 </td>
 
@@ -349,19 +281,10 @@ tuning, we get max depth as 10 and the number of estimators as 100.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
-as shown below.
+as shown
+below.
 
-<div class="figure">
-
-<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
-
-<p class="caption">
-
-Figure 3: The plot for importance for predictors.
-
-</p>
-
-</div>
+<img src="../result/feature_importance.png" title="Figure 3: The plot for importance for predictors." alt="Figure 3: The plot for importance for predictors." width="85%" />
 
 The variable `hr` is the most important feature to predict bike
 ridership. The second most important feature is `temp`. It is also
@@ -370,27 +293,26 @@ predicting the number of bike rentals.
 
 In order to visualize the results, we also plotted the point graph
 between actual rides and predicted rides. The predicted rides are from
-test data set using the best model i.e `Random Forest`.
+test data set using the best model i.e `Random
+Forest`.
 
-<div class="figure">
-
-<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
-
-<p class="caption">
-
-Figure 4: The plot for predicted and actual rides
-
-</p>
-
-</div>
+<img src="../result/fig_result.png" title="Figure 4: The plot for predicted and actual rides" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
 
 The relationship is looking very linear which means that predicted
 values are close to the actual values. The model can be used to predict
 the ridership in the future given the input features.
 
+In order to improve our model further, we can perform more feature
+engineering and can potentially use One hot encoding instead of Label
+encoding on features such as week day and seasons. Then, we can check if
+there is an improvement in the training and testing errors. In addition,
+we can also explore other scoring criteria such as `mean absolute error`
+and `R squared` and see if these scoring techniques can help us make
+better predictions.
+
 # References
 
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references">
 
 <div id="ref-docoptr">
 
@@ -518,7 +440,6 @@ Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
 Zhu, Hao. 2019. *KableExtra: Construct Complex Table with ’Kable’ and
 Pipe Syntax*.
 <https://cran.r-project.org/web/packages/kableExtra/index.html>.
-
 
 </div>
 
