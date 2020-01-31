@@ -19,7 +19,7 @@ set.seed(2020)
 opt <- docopt(doc)
 main <- function(input, out_dir){
   # Load the data
-  raw_data <- suppressMessages(read_csv(input))
+  raw_data <- read_csv(input)
   
   # Drop the unnecessary columns 
   raw_data <- raw_data %>%
@@ -83,32 +83,7 @@ main <- function(input, out_dir){
   write_csv(y_train, paste0(out_dir, "/y_train.csv"))
   write_csv(X_test, paste0(out_dir, "/X_test.csv"))
   write_csv(y_test, paste0(out_dir, "/y_test.csv"))
-  
-}
 
-test_check <- function(out_dir){
-  # check if the output files exist and print out the last modified date
-  file_1 <-"/training_data.csv"
-  file_2 <- "/test_data.csv"
-  file_3 <- "/X_train.csv"
-  file_4 <- "/y_train.csv"
-  file_5 <- "/X_test.csv"
-  file_6 <- "/y_test.csv"
-  file_6 <- "/y_test.csv"
-  
-  file_list = c(file_1, file_2, file_3, file_4, file_5, file_6)
-  
-  for (i in file_list) {
-    file_path = paste0(out_dir, i)
-    if (file_test("-f", file_path)) {
-      print(paste(i, "is generated on", file.info(file_path)$ctime))
-    } else {
-      print(paste(i, "is not found!"))
-    }
-  }
-  
 }
-
-test_check(opt[["--out_dir"]])
 
 main(opt[["--input"]], opt[["--out_dir"]])
