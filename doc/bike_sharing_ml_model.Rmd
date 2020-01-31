@@ -43,7 +43,11 @@ knitr::include_graphics("../img/fig_3_hr.png")
 ```
 
 ## Analysis
+<<<<<<< HEAD
 The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from Scikit-learn [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from Scikit-learn [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding.](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from Scikit-learn [@scikit]
+=======
+The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from Scikit-learn [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from Scikit-learn [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from Scikit-learn.[@scikit]
+>>>>>>> upstream/master
 
 All variables included in the original dataset, except `instant`, `dteday`, `yr`, `casual` and `registered`, were used to fit the training data. The hyperparameters (i.e. ‘max_depth’ and ‘n_estimators’) were chosen used 5-fold cross-validation with mean squared error as the regression metric.
 

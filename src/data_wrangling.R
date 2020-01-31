@@ -67,22 +67,10 @@ main <- function(input, out_dir){
     slice(training_rows)
   test_data <- denormalized_data %>% 
     slice(-training_rows)
-  X_train <- training_data %>% 
-    select(-cnt) 
-  y_train <- training_data %>%
-    select(cnt)
-  X_test <- test_data %>% 
-    select(-cnt)
-  y_test <- test_data %>%
-    select(cnt)
   
   # write training and test data to feather files
   write_csv(training_data, paste0(out_dir, "/training_data.csv"))
   write_csv(test_data, paste0(out_dir, "/test_data.csv"))
-  write_csv(X_train, paste0(out_dir, "/X_train.csv"))
-  write_csv(y_train, paste0(out_dir, "/y_train.csv"))
-  write_csv(X_test, paste0(out_dir, "/X_test.csv"))
-  write_csv(y_test, paste0(out_dir, "/y_test.csv"))
   
 }
 
@@ -90,13 +78,8 @@ test_check <- function(out_dir){
   # check if the output files exist and print out the last modified date
   file_1 <-"/training_data.csv"
   file_2 <- "/test_data.csv"
-  file_3 <- "/X_train.csv"
-  file_4 <- "/y_train.csv"
-  file_5 <- "/X_test.csv"
-  file_6 <- "/y_test.csv"
-  file_6 <- "/y_test.csv"
   
-  file_list = c(file_1, file_2, file_3, file_4, file_5, file_6)
+  file_list = c(file_1, file_2)
   
   for (i in file_list) {
     file_path = paste0(out_dir, i)
@@ -109,6 +92,6 @@ test_check <- function(out_dir){
   
 }
 
-test_check(opt[["--out_dir"]])
-
 main(opt[["--input"]], opt[["--out_dir"]])
+
+test_check(opt[["--out_dir"]])
