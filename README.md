@@ -23,22 +23,14 @@ The final report can be found [here](https://ubc-mds.github.io/DSCI_522_Group_40
 )
 
 ## Usage
-To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following command at the command line/terminal from the root directory of this project:
+To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following command at the command line/terminal from the root directory of this project. Please note this process will take few minutes:
 ```
-# download data
-python src/data_download.py --file_url="https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip" --file_path="data/"
+make all
+```
 
-# pre-process data
-Rscript src/data_wrangling.r --input="data/hour.csv" --out_dir="data/"
-
-# create exploratory data analysis figure and write to file 
-python src/EDA.py --input_file="data/training_data.csv" --output_path="img/"
-
-# tune and test the model
-python src/data_modelling.py --input_file_path="data/" --output_file_path="result/"
-
-# render final report
-Rscript -e "rmarkdown::render('doc/bike_sharing_ml_model.Rmd', output_format = 'github_document')"
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+```
+make clean
 ```
 
 ## Dependencies

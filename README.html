@@ -372,7 +372,8 @@ summary {
 <p><a href="https://github.com/UBC-MDS/DSCI_522_Group_409">Group Project Repo Link</a></p>
 <div id="about" class="section level2">
 <h2>About</h2>
-<p>Here we attempt to build a regression machine learning model using the Random Forest Regressor algorithm which predicts the count of bike rentals based on the time and weather-related information. Our final model performed fairly well on an unseen test data set, with the mean square error of 70.39 and a visually linear relationship between actual and predicted values. However, the variance of predicted values becomes larger as the actual count of bike rentals increases, which indicates there are incorrectness in the model when the prediction is large. Thus we recommend continuing study to improve our machine learning model.</p>
+<p>Here we attempt to build a regression machine learning model using the Random Forest Regressor algorithm which predicts the count of bike rentals based on the time and weather-related information. The main predictive research question is “Given the information shared by Bike share company, can we predict the count of bike rentals on hourly basis in order to forecast the future demand of bike rentals?”</p>
+<p>Our final model performed fairly well on an unseen test data set, with the mean square error of 70.39 and a visually linear relationship between actual and predicted values. However, the variance of predicted values becomes larger as the actual count of bike rentals increases, which indicates there are incorrectness in the model when the prediction is large. Thus we recommend continuing study to improve our machine learning model.</p>
 <p>The dataset we are using to build a machine learning model is the bike-sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset. The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day.</p>
 <p>The dataset was created by Dr. Hadi (Fanaee-T 2013) from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), at the (UCI Machine Learning Repository 2017) and can be found <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">here</a>.</p>
 </div>
@@ -382,21 +383,10 @@ summary {
 </div>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
-<p>To replicate the analysis, clone this GitHub repository, install the <a href="#dependencies">dependencies</a> listed below, and run the following command at the command line/terminal from the root directory of this project:</p>
-<pre><code># download data
-python src/data_download.py --file_url=&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip&quot; --file_path=&quot;data/&quot;
-
-# pre-process data
-Rscript src/data_wrangling.r --input=&quot;data/hour.csv&quot; --out_dir=&quot;data/&quot;
-
-# create exploratory data analysis figure and write to file 
-python src/EDA.py --input_file=&quot;data/training_data.csv&quot; --output_path=&quot;img/&quot;
-
-# tune and test the model
-python src/data_modelling.py --input_file_path=&quot;data/&quot; --output_file_path=&quot;result/&quot;
-
-# render final report
-Rscript -e &quot;rmarkdown::render(&#39;doc/bike_sharing_ml_model.Rmd&#39;, output_format = &#39;github_document&#39;)&quot;</code></pre>
+<p>To replicate the analysis, clone this GitHub repository, install the <a href="#dependencies">dependencies</a> listed below, and run the following command at the command line/terminal from the root directory of this project. Please note this process will take few minutes:</p>
+<pre><code>make all</code></pre>
+<p>To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:</p>
+<pre><code>make clean</code></pre>
 </div>
 <div id="dependencies" class="section level2">
 <h2>Dependencies</h2>
@@ -434,34 +424,44 @@ Rscript -e &quot;rmarkdown::render(&#39;doc/bike_sharing_ml_model.Rmd&#39;, outp
 <div id="ref-uic_repo">
 <p>Dua, Dheeru and Graff, Casey. 2017. UCI Machine Learning Repository. University of California, Irvine, School of Information and Computer Sciences. <a href="http://archive.ics.uci.edu/ml" class="uri">http://archive.ics.uci.edu/ml</a></p>
 </div>
+<br>
 <div id="ref-hadi">
 <p>Fanaee-T, Hadi. 2013. “Bike Sharing Dataset Data Set.” University of Porto, INESC Porto, Campus da FEUP, Rua Dr. Roberto Frias, 378, 4200 - 465 Porto, Portugal: Laboratory of Artificial Intelligence; Decision Support (LIAAD); Machine, Learning Repository, UCI.<br />
 <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset" class="uri">https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset</a></p>
 </div>
+<br>
 <div id="ref-docopt">
 <p>Keleshev, Vladimir. 2014. docopt: Command-line interface description language. Python package version 0.6.2}. <a href="https://github.com/docopt/docopt" class="uri">https://github.com/docopt/docopt</a></p>
 </div>
+<br>
 <div id="ref-pandas">
 <p>McKinney, Wes and others. 2010. Pandas. Data structures for statistical computing in python, Proceedings of the 9th Python in Science Conference}, volume 445, pages 51–56, Austin, TX.</p>
 </div>
+<br>
 <div id="ref-numpy">
 <p>Oliphant, Travis E. 2006. A guide to NumPy. Volume=1, publisher Trelgol Publishing, USA.</p>
 </div>
+<br>
 <div id="ref-scklear">
 <p>Pedregosa, F., Varoquaux, G., Et Al. 2011. Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, volume 12, pages 2825–2830.</p>
 </div>
+<br>
 <div id="ref-altair">
 <p>VanderPlas, J., Granger, B., Et All. 2018. Altair: Interactive Statistical Visualizations for Python. The Journal of Open Source Software, volume 3, number 32. <a href="http://idl.cs.washington.edu/papers/altair" class="uri">http://idl.cs.washington.edu/papers/altair</a></p>
 </div>
+<br>
 <div id="ref-seaborn">
 <p>Waskom, Michael. 2020. Seaborn: Statistical Data Visualization. <a href="https://seaborn.pydata.org" class="uri">https://seaborn.pydata.org</a></p>
 </div>
+<br>
 <div id="ref-tidyverse">
 <p>Wickham, Hadley. 2017. Tidyverse: Easily Install and Load the ’Tidyverse’. <a href="https://CRAN.R-project.org/package=tidyverse" class="uri">https://CRAN.R-project.org/package=tidyverse</a></p>
 </div>
+<br>
 <div id="ref-knitr">
 <p>Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research in R.” In Implementing Reproducible Computational Research, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC. <a href="http://www.crcpress.com/product/isbn/9781466561595" class="uri">http://www.crcpress.com/product/isbn/9781466561595</a></p>
 </div>
+<br>
 <div id="ref-kableExtra">
 <p>Zhu, Hao. 2019. KableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax. <a href="https://cran.r-project.org/web/packages/kableExtra/index.html" class="uri">https://cran.r-project.org/web/packages/kableExtra/index.html</a></p>
 </div>
