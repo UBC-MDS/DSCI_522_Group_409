@@ -10,7 +10,9 @@ Qian*
 [Group Project Repo Link](https://github.com/UBC-MDS/DSCI_522_Group_409)
 
 ## About
-Here we attempt to build a regression machine learning model using the Random Forest Regressor algorithm which predicts the count of bike rentals based on the time and weather-related information. Our final model performed fairly well on an unseen test data set, with the mean square error of 70.39 and a visually linear relationship between actual and predicted values. However, the variance of predicted values becomes larger as the actual count of bike rentals increases, which indicates there are incorrectness in the model when the prediction is large. Thus we recommend continuing study to improve our machine learning model.
+Here we attempt to build a regression machine learning model using the Random Forest Regressor algorithm which predicts the count of bike rentals based on the time and weather-related information. The main predictive research question is "Given the information shared by Bike share company, can we predict the count of bike rentals on hourly basis in order to forecast the future demand of bike rentals?"
+
+Our final model performed fairly well on an unseen test data set, with the mean square error of 70.39 and a visually linear relationship between actual and predicted values. However, the variance of predicted values becomes larger as the actual count of bike rentals increases, which indicates there are incorrectness in the model when the prediction is large. Thus we recommend continuing study to improve our machine learning model.
 
 The dataset we are using to build a machine learning model is the bike-sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset. The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day.
 
@@ -21,22 +23,14 @@ The final report can be found [here](https://ubc-mds.github.io/DSCI_522_Group_40
 )
 
 ## Usage
-To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following command at the command line/terminal from the root directory of this project:
+To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following command at the command line/terminal from the root directory of this project. Please note this process will take few minutes:
 ```
-# download data
-python src/data_download.py --file_url="https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip" --file_path="data/"
+make all
+```
 
-# pre-process data
-Rscript src/data_wrangling.r --input="data/hour.csv" --out_dir="data/"
-
-# create exploratory data analysis figure and write to file 
-python src/EDA.py --input_file="data/training_data.csv" --output_path="img/"
-
-# tune and test the model
-python src/data_modelling.py --input_file_path="data/" --output_file_path="result/"
-
-# render final report
-Rscript -e "rmarkdown::render('doc/bike_sharing_ml_model.Rmd', output_format = 'github_document')"
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+```
+make clean
 ```
 
 ## Dependencies

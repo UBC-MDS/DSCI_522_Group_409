@@ -18,6 +18,13 @@ set.seed(2020)
 
 opt <- docopt(doc)
 main <- function(input, out_dir){
+  #' 
+  #' Preprocess the data file and split into train and test sets
+  #'
+  #' @param input, str, the input data source
+  #' @param out_dir, str, the path where the output will be stored
+  #' 
+
   # Load the data
   raw_data <- read_csv(input)
   
@@ -75,7 +82,12 @@ main <- function(input, out_dir){
 }
 
 test_check <- function(out_dir){
-  # check if the output files exist and print out the last modified date
+  #' 
+  #' checks if the output files exist and print out the last modified date
+  #'
+  #' @param out_dir, str, the path where the output will be stored
+  #'
+
   file_1 <-"/training_data.csv"
   file_2 <- "/test_data.csv"
   

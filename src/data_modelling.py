@@ -44,6 +44,23 @@ from sklearn.preprocessing import MinMaxScaler
 opt = docopt(__doc__)
 
 def main(input_file_path, output_file_path):
+    """
+    fits and tunes the 3 different models using the data from input path
+        
+    Parameters:
+    ------
+    input_file_path: string
+        path where the data will be stored
+    
+    output_file_path: string
+        path where the results will be stored
+    
+    Returns:
+    -------
+        one .png figure of feature importance, 
+        one .png figure of actual vs predicted values
+        one .csv table of the modelling results
+    """
 
     if not os.path.exists(output_file_path):
         os.makedirs(output_file_path, exist_ok=True)
@@ -234,7 +251,16 @@ def model_train(model,parameters,X_train, y_train, X_test, y_test):
 
 def check_file(file_path):
     """
-    Writing the text file and print success in the file
+    check if files exit or not. It is a helper function for the test fucntion below.
+        
+    Parameters:
+    ------
+    file_path: string
+        path where the data will be stored
+    
+    Returns:
+    -------
+        a success.txt will be generated if the files are downloaded successfully
     """
     if not os.path.exists(file_path):
         os.makedirs(file_path, exist_ok=True)
@@ -245,6 +271,18 @@ def check_file(file_path):
     return os.path.isfile(file_path +  "/success.txt")
 
 def test_error(file_path):
+    """
+    tests whether the files have been downloaded successfully
+        
+    Parameters:
+    ------
+    file_path: string
+        path where the data will be stored
+    
+    Returns:
+    -------
+        passes if the test is successful, otherwise returns error messages
+    """
     assert check_file(file_path), "Training file is not generated"
 
 

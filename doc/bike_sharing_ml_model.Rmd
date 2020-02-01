@@ -15,8 +15,13 @@ library(knitr)
 library(kableExtra)
 ```
 
+```{r load the results}
+results <- read.csv("../result/result.csv")
+test_err <- round(results$Test.Error[3], 2)
+```
+
 # Summary
-Here we attempt to build a regression machine learning model using the Random Forest Regressor algorithm which predicts the count of bike rentals based on the time and weather-related information. Our final model performed fairly well on an unseen test data set, with the mean square error of 70.39 and a visually linear relationship between actual and predicted values. However, the variance of predicted values becomes larger as the actual count of bike rentals increases, which indicates there are incorrectness in the model when the prediction is large. Thus we recommend continuing study to improve our machine learning model.
+Here we attempt to build a regression machine learning model using the Random Forest Regressor algorithm which predicts the count of bike rentals based on the time and weather-related information. Our final model performed fairly well on an unseen test data set, with the mean square error of ``r toString(test_err)`` and a visually linear relationship between actual and predicted values. However, the variance of predicted values becomes larger as the actual count of bike rentals increases, which indicates there are incorrectness in the model when the prediction is large. Thus we recommend continuing study to improve our machine learning model.
 
 # Introduction
 Demand forecasting is an important aspect for many companies in carrying out their operations. In our case, with the help of demand forecasting, a bike rental company can perform many tasks such as inventory management (no. of bikes), manpower management etc. Such planning will result in making operations efficient and effective. Planning and forecasting can help in facing sudden challenges and problems in a much better way.
@@ -25,14 +30,34 @@ Here we ask whether we can predict the count of bike rentals on an hourly basis 
 # Methods
 
 ## Data
-The dataset we are using to build a machine learning model is the bike-sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset. The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. 
+The dataset we are using to build a machine learning model is the bike-sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset. 
+
+The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. All the features and target are listed below:
+
+1. `instant`: Record index  
+2. `dteday`: Date  
+3. `season`: Season (1:spring, 2:summer, 3:fall, 4:winter)  
+4. `yr`: Year (0: 2011, 1:2012)  
+5. `mnth`: Month  
+6. `hr`: Hour  
+7. `holiday`: (0: No, 1: Yes)  
+8. `weekday`: Day of the week (starting from 0: Sunday)  
+9. `workingday`: (0: No, 1: Yes)  
+10. `weathersit`:  (1: Clear, Few clouds, Partly cloudy, Partly cloudy. 2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist. 3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds. 4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog)  
+11. `temp`: Normalized temperature in Celsius  
+12. `atemp`: Normalized feeling temperature in Celsius  
+13. `hum`: Normalized humidity  
+14. `windspeed`: Normalized wind speed  
+15. `casual`: count of casual users  
+16. `registered`: count of registered users  
+17. `cnt`: count of total rental bikes including both casual and registered  
 
 The dataset was created by Dr. Hadi [@hadi] from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), at the [@uic_repo].
 
 We have performed an explanatory data analysis (EDA), the full report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). In this analysis, we built some visualizations to deep dive the data and found the relationships between different variables, as well as the explanatory variables with a higher correlation with the target variable (number of bikes rented). As we can see from Figure 1. below, the demand for bikes increases when the weather is warmer and decreases when the temperatures are lower.
   
 ```{r, echo=FALSE, fig.cap="Figure 1. Analysis of temperatures by weekday", out.width = '65%'}
-knitr::include_graphics("../img/fig_2_temp.png")
+knitr::include_graphics("../img/fig_2b_workingday.png")
 ```
 
 Another visualization we want to point out is the heatmap outlining how the day of week and hour of day affect the count of bike rental.  We found that people use bike rentals mainly for work and school on weekdays showing the peak of the demand in two times of the day. Besides, people use rental bikes between 11 am and 4 pm during weekends.
@@ -40,6 +65,12 @@ Another visualization we want to point out is the heatmap outlining how the day 
 <br>
 ```{r, echo=FALSE, fig.cap="Figure 2. Analysis per hour and weekday", out.width = '70%'}
 knitr::include_graphics("../img/fig_3_hr.png")
+```
+
+The correlation matrix between features and features, features and target is shown below.
+
+```{r, echo=FALSE, fig.cap="Figure 3. Correlation matrix", out.width = '70%'}
+knitr::include_graphics("../img/fig_5_corr.png")
 ```
 
 ## Analysis
@@ -53,14 +84,12 @@ The R [@r] and Python [@python] programming langues and the following R and Pyth
 To make the prediction model, it is required to test different models and check which model fits best. There are several methods available to check which model is best suited for the bike rental data. For this problem, we have used `mean_squared_error` and calculated the error for both training and testing error as shown below. Moreover, we have also tuned hyperparameters to get the best model with the best hyperparameters.   
 
 ```{r model compare}
-results <- read.csv("../result/result.csv")
 kable((results), caption = "Table 1. Training and Testing error for k-nearest neighbors, RandomForest and Linear Regression.") %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
 
 m <- results$Model[3]
 h <- results[[7]][3]
-
-
+test_err <- results$Test.Error[3]
 ```
 
 As we can see above, ``r toString(m)`` from [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get best hyper parameters as ``r toString(h)``. 
