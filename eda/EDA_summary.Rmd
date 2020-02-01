@@ -89,22 +89,22 @@ knitr::include_graphics("../img/fig_3_hr.png")
 In the other hand, the time with the lowest demand of rental bikes is between 1 and 5 hr. everyday.
 
 ## 7.3 Analysis of weather on demand for rental bikes
-To rent or not to rent a bike, that is the question. And the answer would not be only based on temperature, day and time, but also it would be important to think about weather, because is not the same to ride a bike on a sunny day than in a rainy one.
+To rent or not to rent a bike, that is the question. And the answer would not be only based on temperature, day and time, but also it would be important to think about weather, because is not the same to ride a bike on a sunny day than in a rainy one.  
 ```{r plot weather, fig.cap = "Figure 4. Analysis of weather and humidity", out.width = '80%'}
 knitr::include_graphics("../img/fig_4b_weather_2.png")
 ```
 <br>
-**Observations**: To understand the previous graphs it will be important to remmember that the weather (`weathersit`) with number 1 is related to a mainly sunny day, while 2 recalls a misty day, a 3 would reference to a lightly rain or snowy day, and 4 with heavy rain, snow or ice.  
-In general we could see that people preffer to ride the rental bikes in sunny days, followed by days with mist, and few people rent then on days with light rain, and as it is logic almost nobody rent bikes on days with heavy rain or snow.  
+**Observations**: To understand the previous graph it is important to remmember that the weather (`weathersit`) is classified with four numbers: number 1 is related to a mainly sunny day, while 2 recalls a misty day, a 3 would reference to a lightly rain or snowy day, and 4 a day with heavy rain, snow or ice.  
+In general we could see that people preffer to ride the rental bikes in sunny days, followed by days with mist, and few people rent them on days with light rain, and also it is logic to find that almost nobody rent bikes on days with heavy rain or snow.  
 
 ## 7.4 Correlation matrix
-Which variables are related which each other? That's a question for the correlation matrix!
+Which variables are related which each other? That's a question for the correlation matrix!  
 ```{r correlation matrix, fig.cap = "Figure 5. Correlation matrix between variables", out.width = '85%'}
 knitr::include_graphics("../img/fig_5_corr.png")
 ```
 <br>
 **Observations**: In the previous table we can find which variables are related with each other. Over all correlations, it stands out the relation between the `month` and the `season` which make sense with a correlation of 0.83  
-
+  
 Additionally, as we could imagine for the previous plots and comments, in this table we can see that for the number of bike rented (`cnt`), there are two variables that stands out for its high correlation with the target variable: the temperature (`temp_actual`) and the hour of the day (`hr`), both with a correlation around 0.40, followed by humidity with a coefficient equals to -0.33  
 
 # References

@@ -832,22 +832,24 @@ between 1 and 5 hr. everyday.
 To rent or not to rent a bike, that is the question. And the answer
 would not be only based on temperature, day and time, but also it would
 be important to think about weather, because is not the same to ride a
-bike on a sunny day than in a rainy one.
+bike on a sunny day than in a rainy
+one.  
 <img src="../img/fig_4b_weather_2.png" title="Figure 4. Analysis of weather and humidity" alt="Figure 4. Analysis of weather and humidity" width="80%" />
-<br> **Observations**: To understand the previous graphs it will be
-important to remmember that the weather (`weathersit`) with number 1 is
-related to a mainly sunny day, while 2 recalls a misty day, a 3 would
-reference to a lightly rain or snowy day, and 4 with heavy rain, snow or
-ice.  
+<br> **Observations**: To understand the previous graph it is important
+to remmember that the weather (`weathersit`) is classified with four
+numbers: number 1 is related to a mainly sunny day, while 2 recalls a
+misty day, a 3 would reference to a lightly rain or snowy day, and 4 a
+day with heavy rain, snow or ice.  
 In general we could see that people preffer to ride the rental bikes in
-sunny days, followed by days with mist, and few people rent then on days
-with light rain, and as it is logic almost nobody rent bikes on days
-with heavy rain or snow.
+sunny days, followed by days with mist, and few people rent them on days
+with light rain, and also it is logic to find that almost nobody rent
+bikes on days with heavy rain or snow.
 
 ## 7.4 Correlation matrix
 
 Which variables are related which each other? That’s a question for the
-correlation matrix\!
+correlation
+matrix\!  
 <img src="../img/fig_5_corr.png" title="Figure 5. Correlation matrix between variables" alt="Figure 5. Correlation matrix between variables" width="85%" />
 <br> **Observations**: In the previous table we can find which variables
 are related with each other. Over all correlations, it stands out the
