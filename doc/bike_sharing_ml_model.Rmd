@@ -56,7 +56,7 @@ The dataset was created by Dr. Hadi [@hadi] from the Laboratory of Artificial In
 
 We have performed an explanatory data analysis (EDA), the full report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). In this analysis, we built some visualizations to deep dive the data and found the relationships between different variables, as well as the explanatory variables with a higher correlation with the target variable (number of bikes rented). As we can see from Figure 1. below, the demand for bikes increases when the weather is warmer and decreases when the temperatures are lower.
   
-```{r, echo=FALSE, fig.cap="Figure 1. Analysis of temperatures by weekday", out.width = '65%'}
+```{r, echo=FALSE, fig.cap="Figure 1. Analysis of temperatures by workingday", out.width = '65%'}
 knitr::include_graphics("../img/fig_2b_workingday.png")
 ```
 
@@ -97,7 +97,7 @@ As we can see above, ``r toString(m)`` from [@scikit] is the best model with min
 It is possible to see the feature importance through random forest regression. We have plotted the feature importance for all the features as shown below.
 
 
-```{r, echo=FALSE, fig.cap="Figure 3: The plot for importance for predictors.", out.width = '85%'}
+```{r, echo=FALSE, fig.cap="Figure 4: The plot for importance for predictors.", out.width = '85%'}
 knitr::include_graphics("../result/feature_importance.png")
 ```
 
@@ -105,7 +105,7 @@ The variable `hr` is the most important feature to predict bike ridership. The s
 
 In order to visualize the results, we also plotted the point graph between actual rides and predicted rides. The predicted rides are from test data set using the best model, ``r toString(m)``. 
 
-```{r, echo=FALSE, fig.cap="Figure 4: The plot for predicted and actual rides", out.width = '85%'}
+```{r, echo=FALSE, fig.cap="Figure 5: The plot for predicted and actual rides", out.width = '85%'}
 knitr::include_graphics("../result/fig_result.png")
 ```
 
