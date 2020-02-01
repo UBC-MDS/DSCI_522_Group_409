@@ -1,7 +1,7 @@
 Bike Sharing Machine Learning Model
 ================
 Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian
-24/01/2020 (updated: 2020-01-31)
+24/01/2020 (updated: 2020-02-01)
 
 # Summary
 
@@ -9,11 +9,12 @@ Here we attempt to build a regression machine learning model using the
 Random Forest Regressor algorithm which predicts the count of bike
 rentals based on the time and weather-related information. Our final
 model performed fairly well on an unseen test data set, with the mean
-square error of 70.39 and a visually linear relationship between actual
-and predicted values. However, the variance of predicted values becomes
-larger as the actual count of bike rentals increases, which indicates
-there are incorrectness in the model when the prediction is large. Thus
-we recommend continuing study to improve our machine learning model.
+square error of `70.57` and a visually linear relationship between
+actual and predicted values. However, the variance of predicted values
+becomes larger as the actual count of bike rentals increases, which
+indicates there are incorrectness in the model when the prediction is
+large. Thus we recommend continuing study to improve our machine
+learning model.
 
 # Introduction
 
@@ -38,9 +39,34 @@ bike-sharing dataset from UCI Machine Learning Repository. It contains
 both the hourly and daily data about the numbers of bike rentals in
 Washington, DC between 2011 and 2012. We would use the hourly dataset,
 which is more complete and have a greater number of observations than
-the daily dataset. The dataset has 1 target and 16 features, including
-both time and weather-related information for each hour on a specific
-day.
+the daily dataset.
+
+The dataset has 1 target and 16 features, including both time and
+weather-related information for each hour on a specific day. All the
+features and target are listed below:
+
+1.  `instant`: Record index  
+2.  `dteday`: Date  
+3.  `season`: Season (1:spring, 2:summer, 3:fall, 4:winter)  
+4.  `yr`: Year (0: 2011, 1:2012)  
+5.  `mnth`: Month  
+6.  `hr`: Hour  
+7.  `holiday`: (0: No, 1: Yes)  
+8.  `weekday`: Day of the week (starting from 0: Sunday)  
+9.  `workingday`: (0: No, 1: Yes)  
+10. `weathersit`: (1: Clear, Few clouds, Partly cloudy, Partly cloudy.
+    2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist. 3:
+    Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain
+    + Scattered clouds. 4: Heavy Rain + Ice Pallets + Thunderstorm +
+    Mist, Snow + Fog)  
+11. `temp`: Normalized temperature in Celsius  
+12. `atemp`: Normalized feeling temperature in Celsius  
+13. `hum`: Normalized humidity  
+14. `windspeed`: Normalized wind speed  
+15. `casual`: count of casual users  
+16. `registered`: count of registered users  
+17. `cnt`: count of total rental bikes including both casual and
+    registered
 
 The dataset was created by Dr. Hadi (Fanaee-T 2013) from the Laboratory
 of Artificial Intelligence and Decision Support (LIAAD), at the (UCI
@@ -57,16 +83,54 @@ for bikes increases when the weather is warmer and decreases when the
 temperatures are
 lower.
 
-<img src="../img/fig_2_temp.png" title="Figure 1. Analysis of temperatures by weekday" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+<div class="figure">
+
+<img src="../img/fig_2b_workingday.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+
+<p class="caption">
+
+Figure 1. Analysis of temperatures by weekday
+
+</p>
+
+</div>
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
 found that people use bike rentals mainly for work and school on
 weekdays showing the peak of the demand in two times of the day.
-Besides, people use rental bikes between 11 am and 4 pm during weekends.
+Besides, people use rental bikes between 11 am and 4 pm during
+weekends.
 
 <br>
-<img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+
+<div class="figure">
+
+<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+
+<p class="caption">
+
+Figure 2. Analysis per hour and weekday
+
+</p>
+
+</div>
+
+The correlation matrix between features and features, features and
+target is shown
+below.
+
+<div class="figure">
+
+<img src="../img/fig_5_corr.png" alt="Figure 3. Correlation matrix" width="70%" />
+
+<p class="caption">
+
+Figure 3. Correlation matrix
+
+</p>
+
+</div>
 
 ## Analysis
 
@@ -226,7 +290,7 @@ LinearRegression
 
 <td style="text-align:right;">
 
-0.0585349
+0.0866139
 
 </td>
 
@@ -278,7 +342,7 @@ KNN
 
 <td style="text-align:right;">
 
-1.2966850
+1.5094521
 
 </td>
 
@@ -300,37 +364,37 @@ RandomForest
 
 <td style="text-align:right;">
 
-63.81910
+63.72580
 
 </td>
 
 <td style="text-align:right;">
 
-70.57788
+70.57363
 
 </td>
 
 <td style="text-align:right;">
 
-0.8766221
+0.8769826
 
 </td>
 
 <td style="text-align:right;">
 
-0.8465022
+0.8465207
 
 </td>
 
 <td style="text-align:left;">
 
-{‘max\_depth’: 10, ‘n\_estimators’: 50}
+{‘max\_depth’: 10, ‘n\_estimators’: 100}
 
 </td>
 
 <td style="text-align:right;">
 
-106.9374828
+125.6313949
 
 </td>
 
@@ -343,14 +407,24 @@ RandomForest
 As we can see above, `RandomForest` from (Pedregosa et al. 2011) is the
 best model with minimum training and testing error. By hyperparameter
 tuning, we get best hyper parameters as `{'max_depth': 10,
-'n_estimators': 50}`.
+'n_estimators': 100}`.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
 as shown
 below.
 
-<img src="../result/feature_importance.png" title="Figure 3: The plot for importance for predictors." alt="Figure 3: The plot for importance for predictors." width="85%" />
+<div class="figure">
+
+<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
+
+<p class="caption">
+
+Figure 3: The plot for importance for predictors.
+
+</p>
+
+</div>
 
 The variable `hr` is the most important feature to predict bike
 ridership. The second most important feature is `temp`. It is also
@@ -362,7 +436,17 @@ between actual rides and predicted rides. The predicted rides are from
 test data set using the best model,
 `RandomForest`.
 
-<img src="../result/fig_result.png" title="Figure 4: The plot for predicted and actual rides" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+<div class="figure">
+
+<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+
+<p class="caption">
+
+Figure 4: The plot for predicted and actual rides
+
+</p>
+
+</div>
 
 The relationship is looking very linear which means that predicted
 values are close to the actual values. The model can be used to predict

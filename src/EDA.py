@@ -293,5 +293,4 @@ def test_error(file_path):
 
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--output_path"])
-
-test_error(opt["--output_path"])
+    test_error(opt["--output_path"])
