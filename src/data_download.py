@@ -49,7 +49,16 @@ def main(file_url, file_path):
     
 def check_file(file_path):
     """
-    Writing the text file and print success in the file
+    check if files exit or not. It is a helper function for the test fucntion below.
+        
+    Parameters:
+    ------
+    file_path: string
+        path where the data will be stored
+    
+    Returns:
+    -------
+        a success.txt will be generated if the files are downloaded successfully
     """
     if not os.path.exists(file_path):
         os.makedirs(file_path, exist_ok=True)
@@ -70,7 +79,7 @@ def test_error(file_path):
     
     Returns:
     -------
-        a success.txt will be generated if the files are downloaded successfully
+        passes if the test is successful, otherwise returns error messages
     """
     assert check_file(file_path), "Training file is not generated"
 
