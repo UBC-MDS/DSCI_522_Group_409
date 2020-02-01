@@ -36,14 +36,14 @@ The dataset has 1 target and 16 features, including both time and weather-relate
 
 1. `instant`: Record index  
 2. `dteday`: Date  
-3. `season`: Season (1:spring, 2:summer, 3:fall, 4:winter)  
-4. `yr`: Year (0: 2011, 1:2012)  
+3. `season`: Season (**1**:spring, **2**:summer, **3**:fall, **4**:winter)  
+4. `yr`: Year (**0**: 2011, **1**:2012)  
 5. `mnth`: Month  
 6. `hr`: Hour  
-7. `holiday`: (0: No, 1: Yes)  
-8. `weekday`: Day of the week (starting from 0: Sunday)  
-9. `workingday`: (0: No, 1: Yes)  
-10. `weathersit`:  (1: Clear, Few clouds, Partly cloudy, Partly cloudy. 2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist. 3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds. 4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog)  
+7. `holiday`: (**0**: No, **1**: Yes)  
+8. `weekday`: Day of the week (starting from **0**: Sunday)  
+9. `workingday`: (**0**: No, **1**: Yes)  
+10. `weathersit`:  (**1**: Clear, Few clouds, Partly cloudy, Partly cloudy. **2**: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist. **3**: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds. **4**: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog)  
 11. `temp`: Normalized temperature in Celsius  
 12. `atemp`: Normalized feeling temperature in Celsius  
 13. `hum`: Normalized humidity  
@@ -67,14 +67,14 @@ Another visualization we want to point out is the heatmap outlining how the day 
 knitr::include_graphics("../img/fig_3_hr.png")
 ```
 
-The correlation matrix between features and features, features and target is shown below.
+The correlation matrix between features, including the target variable, is shown below.
 
 ```{r, echo=FALSE, fig.cap="Figure 3. Correlation matrix", out.width = '70%'}
 knitr::include_graphics("../img/fig_5_corr.png")
 ```
 
 ## Analysis
-The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from Scikit-learn [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from Scikit-learn [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from Scikit-learn.[@scikit]
+The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from Scikit-learn [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from Scikit-learn [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from Scikit-learn [@scikit].
 
 All variables included in the original dataset, except `instant`, `dteday`, `yr`, `casual` and `registered`, were used to fit the training data. The hyperparameters (i.e. ‘max_depth’ and ‘n_estimators’) were chosen used 5-fold cross-validation with mean squared error as the regression metric.
 
@@ -92,7 +92,7 @@ h <- results[[7]][3]
 test_err <- results$Test.Error[3]
 ```
 
-As we can see above, ``r toString(m)`` from [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get best hyper parameters as ``r toString(h)``. 
+As we can see above, ``r toString(m)`` from Scikit-learn [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get best hyper parameters as ``r toString(h)``. 
 
 It is possible to see the feature importance through random forest regression. We have plotted the feature importance for all the features as shown below.
 

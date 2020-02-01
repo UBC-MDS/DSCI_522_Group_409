@@ -102,7 +102,16 @@ def main(input_file, output_path):
     # 5. WRANGLING
     # Almost all the wran will be done in a different script.
     bike_data_2 = bike_data.groupby(['weekday', 'hr']).mean().reset_index()
-    bike_data_2
+    bike_data3 = bike_data
+    bike_data3['workingday'] = bike_data3['workingday'].replace(
+        {0: 'no',
+         1: 'yes'})
+    bike_data3['weathersit'] = bike_data3['weathersit'].replace(
+        {1: '1 (mainly sunny)',
+         2: '2 (misty day)',
+         3: '3 (light rain/snow)',
+         4: '4 (heavy rain/snow)'})
+    
     
     # 6. RESEARCH QUESTION
     # Main:
@@ -121,10 +130,12 @@ def main(input_file, output_path):
                      'Friday', 'Saturday', 'Sunday']
     
     chart_temp = alt.Chart(bike_data).mark_point(opacity=0.3, size = 4).encode(
-                alt.X('temp:Q'),
-                alt.Y('cnt:Q'),
+                x = alt.X('temp:Q',
+                    title = "Temperature"),
+                y = alt.Y('cnt:Q',
+                    title = "Number of bikes"),
                 color = alt.Color('weekday:N', legend=None)
-            ).properties(title="Temp vs Bike Rental",
+            ).properties(title="Tempperature vs Bike Rental",
                         width=200, height=150
             ).facet(alt.Facet('weekday:N', 
                               sort = order_of_days),
@@ -140,9 +151,11 @@ def main(input_file, output_path):
     order_of_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 
                      'Friday', 'Saturday', 'Sunday']
     
-    chart_temp = alt.Chart(bike_data).mark_point(opacity=0.3, size = 4).encode(
-                alt.X('temp:Q'),
-                alt.Y('cnt:Q'),
+    chart_temp = alt.Chart(bike_data3).mark_point(opacity=0.3, size = 4).encode(
+                x = alt.X('temp:Q',
+                    title = "Temperature"),
+                y = alt.Y('cnt:Q',
+                    title = "Number of bikes"),
                 color = alt.Color('workingday:N', legend=None)
             ).properties(title="Temp vs Bike Rental",
                         width=200, height=150
@@ -159,11 +172,11 @@ def main(input_file, output_path):
     # 7.2 Analysis of hour and weekday on bike rental count
     heat_map = alt.Chart(bike_data_2).mark_rect().encode(
                     x = alt.X("hr:O", 
-                              title = "Hour of Day", 
-                              axis = alt.Axis(labelAngle = 0)),
+                        title = "Hour of Day", 
+                        axis = alt.Axis(labelAngle = 0)),
                     y = alt.Y('weekday:O',
-                              sort=order_of_days,
-                              title = "Day of Week"),
+                        sort=order_of_days,
+                        title = "Day of Week"),
                     color=alt.Color('cnt:Q', 
                                     legend=alt.Legend(title = "counts")),
                     tooltip=['weekday', 'hr', 'cnt']
@@ -171,9 +184,11 @@ def main(input_file, output_path):
     heat_map.save(output_path + "/fig_3_hr.png", scale_factor=2.0)
     
     # 7.3 Analysis of weather and humidity on demand for rental bikes
-    chart_weather = alt.Chart(bike_data).mark_point(opacity=0.5, size = 4).encode(
-                alt.X('hum:Q'),
-                alt.Y('cnt:Q'),
+    chart_weather = alt.Chart(bike_data3).mark_point(opacity=0.5, size = 4).encode(
+                x = alt.X('hum:Q',
+                    title = "Humidity"),
+                y = alt.Y('cnt:Q',
+                    title = "Number of bikes"),
                 color = alt.Color('weathersit:N', legend=None)
             ).properties(title="Temp vs Bike Rental",
                         width=200, height=150
@@ -188,14 +203,15 @@ def main(input_file, output_path):
     chart_weather.save(output_path + "/fig_4_weather.png", scale_factor=2.0)
     
     # 7.3 b Analysis of weather  on demand for rental bikes
-    chart_weather2 = alt.Chart(bike_data, width=150).mark_circle(opacity=0.6, size = 4).encode(
+    chart_weather2 = alt.Chart(bike_data3, width=150).mark_circle(opacity=0.6, size = 4).encode(
                 x=alt.X(
                     'jitter:Q',
                     title=None,
                     axis=alt.Axis(values=[0], ticks=True, grid=False, labels=False),
                     scale=alt.Scale()
                 ),
-                y=alt.Y('cnt:Q'),
+                y=alt.Y('cnt:Q',
+                    title = "Number of bikes"),
                 color = alt.Color('weathersit:N', legend=None),
                 column=alt.Column(
                     'weathersit:N',
