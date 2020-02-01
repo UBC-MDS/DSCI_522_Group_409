@@ -85,11 +85,11 @@ lower.
 
 <div class="figure">
 
-<img src="../img/fig_2b_workingday.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+<img src="../img/fig_2b_workingday.png" alt="Figure 1. Analysis of temperatures by workingday" width="65%" />
 
 <p class="caption">
 
-Figure 1. Analysis of temperatures by weekday
+Figure 1. Analysis of temperatures by workingday
 
 </p>
 
@@ -416,11 +416,11 @@ below.
 
 <div class="figure">
 
-<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
+<img src="../result/feature_importance.png" alt="Figure 4: The plot for importance for predictors." width="85%" />
 
 <p class="caption">
 
-Figure 3: The plot for importance for predictors.
+Figure 4: The plot for importance for predictors.
 
 </p>
 
@@ -438,11 +438,11 @@ test data set using the best model,
 
 <div class="figure">
 
-<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+<img src="../result/fig_result.png" alt="Figure 5: The plot for predicted and actual rides" width="85%" />
 
 <p class="caption">
 
-Figure 4: The plot for predicted and actual rides
+Figure 5: The plot for predicted and actual rides
 
 </p>
 
