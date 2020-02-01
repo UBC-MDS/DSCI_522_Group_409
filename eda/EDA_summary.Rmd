@@ -64,11 +64,20 @@ The sub-questions is:
 ## 7.1 Analysis of temperatures on bike rental count
 Would you rent a bike to commute to your work on a 25˚C sunny-day? And how about on a winter day with a temperature below 0˚C?  
 We believe that the temperature could be an important variable to predict the future demand of bike rentals, so we start our analysis with a faceted plot comparing the temperature with the number of rented bikes, by weekday.  
-```{r plot temp, fig.cap = "Figure 2. Analysis of temperatures by weekday", out.width = '90%'}
+```{r plot temp, fig.cap = "Figure 2. Analysis of temperatures by weekday", out.width = '70%'}
 knitr::include_graphics("../img/fig_2_temp.png")
 ```
 <br>
-**Observations:** In general, the demand for rental bikes increases when the weather is warmer and decreases when the temperature is lower; this particular behaviour is more observed on weekends. Also, from this comparison, we can see that more bikes are rented on weekdays, probably because people commute to their work or school.  
+
+In the previous figure we identify a different behaviour for bike rentals, so we decide to make a complementary plot of the numbers of rented bikes comparing the tempture by workingdays.
+
+```{r plot temp 2, fig.cap = "Figure 2 b. Analysis of temperatures by workingdays", out.width = '90%'}
+knitr::include_graphics("../img/fig_2b_workingday.png")
+```
+
+**Observations:** In general, the demand for rental bikes increases when the weather is warmer and decreases when the temperature is lower; this particular behaviour is more observed on weekends and also in workingdays.
+From the comparison of the first plot, we can see that more bikes are rented on weekdays, probably because people commute to their work or school, which is verified with the second plot. 
+
 
 ## 7.2 Analysis of hour and weekday on bike rental count
 With the previous analysis, we can think that people use the rental bikes for different objectives in the function of the day of the week. This is a good point to arise another question: does the hour also affect the demand for bike rentals?  
@@ -79,15 +88,14 @@ knitr::include_graphics("../img/fig_3_hr.png")
 **Observations**: In the previous plot we can confirm the hypothesis that people use the bike rentals mainly for work and school on the weekdays showing the peak of the demand in two times of the day: in the morning around 8 hr., and the afternoon between 17 and 18 hr.; on the weekends people use the rental bikes between 11 and 16 hours.  
 In the other hand, the time with the lowest demand of rental bikes is between 1 and 5 hr. everyday.
 
-## 7.3 Analysis of weather and humidity on demand for rental bikes
-To rent or not to rent a bike, that is the question. And the answer would not be only based on temperature, day and time, but also it would be important to think about weather and humidity, because is not the same to ride a bike on a sunny day than in a rainy one.
+## 7.3 Analysis of weather on demand for rental bikes
+To rent or not to rent a bike, that is the question. And the answer would not be only based on temperature, day and time, but also it would be important to think about weather, because is not the same to ride a bike on a sunny day than in a rainy one.
 ```{r plot weather, fig.cap = "Figure 4. Analysis of weather and humidity", out.width = '80%'}
-knitr::include_graphics("../img/fig_4_weather.png")
+knitr::include_graphics("../img/fig_4b_weather_2.png")
 ```
 <br>
 **Observations**: To understand the previous graphs it will be important to remmember that the weather (`weathersit`) with number 1 is related to a mainly sunny day, while 2 recalls a misty day, a 3 would reference to a lightly rain or snowy day, and 4 with heavy rain, snow or ice.  
 In general we could see that people preffer to ride the rental bikes in sunny days, followed by days with mist, and few people rent then on days with light rain, and as it is logic almost nobody rent bikes on days with heavy rain or snow.  
-In the other hand, we can observe the demand for bike rental increases in days less humid.
 
 ## 7.4 Correlation matrix
 Which variables are related which each other? That's a question for the correlation matrix!
