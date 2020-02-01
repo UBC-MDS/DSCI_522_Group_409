@@ -4,7 +4,7 @@ author: "Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian"
 date: "24/01/2020 (updated: `r Sys.Date()`)"
 always_allow_html: true
 output: 
-  github_document: 
+  html_document: 
     toc: true
 bibliography: references.bib
 ---
@@ -43,7 +43,7 @@ knitr::include_graphics("../img/fig_3_hr.png")
 ```
 
 ## Analysis
-The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding.](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from [@scikit]
+The [Random Forest Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) from Scikit-learn [@scikit] was used as the final model to build a regression model to predict the count of bike rentals on an hourly basis. The original dataset has the categorical features preprocessed using label encoding and numerical features preprocessed using [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html) from Scikit-learn [@scikit]. In order to not violate the golden rule of machine learning, we decided to de-normalize the numerical features before train and test data splitting and apply feature scaling afterwards in our modelling process. We also changed `holiday` and `workingday` to [OneHotEncoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) from Scikit-learn.[@scikit]
 
 All variables included in the original dataset, except `instant`, `dteday`, `yr`, `casual` and `registered`, were used to fit the training data. The hyperparameters (i.e. ‘max_depth’ and ‘n_estimators’) were chosen used 5-fold cross-validation with mean squared error as the regression metric.
 
@@ -56,11 +56,17 @@ To make the prediction model, it is required to test different models and check 
 results <- read.csv("../result/result.csv")
 kable((results), caption = "Table 1. Training and Testing error for k-nearest neighbors, RandomForest and Linear Regression.") %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
+
+m <- results$Model[3]
+h <- results[[7]][3]
+
+
 ```
 
-As we can see above, `Random Forest` from [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get max depth as 10 and the number of estimators as 100. 
+As we can see above, ``r toString(m)`` from [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get best hyper parameters as ``r toString(h)``. 
 
 It is possible to see the feature importance through random forest regression. We have plotted the feature importance for all the features as shown below.
+
 
 ```{r, echo=FALSE, fig.cap="Figure 3: The plot for importance for predictors.", out.width = '85%'}
 knitr::include_graphics("../result/feature_importance.png")
@@ -68,7 +74,7 @@ knitr::include_graphics("../result/feature_importance.png")
 
 The variable `hr` is the most important feature to predict bike ridership. The second most important feature is `temp`. It is also interesting to know if it is a working day or not which also matters in predicting the number of bike rentals.
 
-In order to visualize the results, we also plotted the point graph between actual rides and predicted rides. The predicted rides are from test data set using the best model i.e `Random Forest`. 
+In order to visualize the results, we also plotted the point graph between actual rides and predicted rides. The predicted rides are from test data set using the best model, ``r toString(m)``. 
 
 ```{r, echo=FALSE, fig.cap="Figure 4: The plot for predicted and actual rides", out.width = '85%'}
 knitr::include_graphics("../result/fig_result.png")
@@ -76,7 +82,7 @@ knitr::include_graphics("../result/fig_result.png")
 
 The relationship is looking very linear which means that predicted values are close to the actual values. The model can be used to predict the ridership in the future given the input features. 
 
-In order to improve our model further, we can perform more feature engineering and can potentially use One hot encoding instead of Label encoding on features such as week day and seasons. Then, we can check if there is an improvement in the training and testing errors. In addition, we can also explore other scoring criteria such as `mean absolute error` and `R squared` and see if these scoring techniques can help us make better predictions.
+In order to improve our model further, we can perform more feature engineering and can potentially use One hot encoding instead of Label encoding on features such as week day and seasons. Then, we can check if there is an improvement in the training and testing errors. 
 
 
 

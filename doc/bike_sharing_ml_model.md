@@ -3,14 +3,6 @@ Bike Sharing Machine Learning Model
 Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian
 24/01/2020 (updated: 2020-01-25)
 
-  - [Summary](#summary)
-  - [Introduction](#introduction)
-  - [Methods](#methods)
-      - [Data](#data)
-      - [Analysis](#analysis)
-  - [Results & Discussion](#results-discussion)
-  - [References](#references)
-
 # Summary
 
 Here we attempt to build a regression machine learning model using the
@@ -65,37 +57,60 @@ for bikes increases when the weather is warmer and decreases when the
 temperatures are
 lower.
 
-<img src="../img/fig_2_temp.png" title="Figure 1. Analysis of temperatures by weekday" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+<div class="figure">
+
+<img src="../img/fig_2_temp.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
+
+<p class="caption">
+
+Figure 1. Analysis of temperatures by weekday
+
+</p>
+
+</div>
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
 found that people use bike rentals mainly for work and school on
 weekdays showing the peak of the demand in two times of the day.
-Besides, people use rental bikes between 11 am and 4 pm during weekends.
+Besides, people use rental bikes between 11 am and 4 pm during
+weekends.
 
 <br>
-<img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+
+<div class="figure">
+
+<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
+
+<p class="caption">
+
+Figure 2. Analysis per hour and weekday
+
+</p>
+
+</div>
 
 ## Analysis
 
 The [Random Forest
 Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
-from (Pedregosa et al. 2011) was used as the final model to build a
-regression model to predict the count of bike rentals on an hourly
-basis. The original dataset has the categorical features preprocessed
-using label encoding and numerical features preprocessed using
+from Scikit-learn (Pedregosa et al. 2011) was used as the final model to
+build a regression model to predict the count of bike rentals on an
+hourly basis. The original dataset has the categorical features
+preprocessed using label encoding and numerical features preprocessed
+using
 [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)
-from (Pedregosa et al. 2011). In order to not violate the golden rule of
-machine learning, we decided to de-normalize the numerical features
-before train and test data splitting and apply feature scaling
-afterwards in our modelling process. We also changed `holiday` and
-`workingday` to
-[OneHotEncoding.](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
-from (Pedregosa et al. 2011)
+from Scikit-learn (Pedregosa et al. 2011). In order to not violate the
+golden rule of machine learning, we decided to de-normalize the
+numerical features before train and test data splitting and apply
+feature scaling afterwards in our modelling process. We also changed
+`holiday` and `workingday` to
+[OneHotEncoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
+from Scikit-learn.(Pedregosa et al. 2011)
 
 All variables included in the original dataset, except `instant`,
 `dteday`, `yr`, `casual` and `registered`, were used to fit the training
-data. The hyperparameters (i.e. ‘max\_depth’ and ‘n\_estimators’) were
+data. The hyperparameters (i.e. ‘max\_depth’ and ‘n\_estimators’) were
 chosen used 5-fold cross-validation with mean squared error as the
 regression metric.
 
@@ -284,7 +299,17 @@ regression. We have plotted the feature importance for all the features
 as shown
 below.
 
-<img src="../result/feature_importance.png" title="Figure 3: The plot for importance for predictors." alt="Figure 3: The plot for importance for predictors." width="85%" />
+<div class="figure">
+
+<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
+
+<p class="caption">
+
+Figure 3: The plot for importance for predictors.
+
+</p>
+
+</div>
 
 The variable `hr` is the most important feature to predict bike
 ridership. The second most important feature is `temp`. It is also
@@ -296,7 +321,17 @@ between actual rides and predicted rides. The predicted rides are from
 test data set using the best model i.e `Random
 Forest`.
 
-<img src="../result/fig_result.png" title="Figure 4: The plot for predicted and actual rides" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+<div class="figure">
+
+<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
+
+<p class="caption">
+
+Figure 4: The plot for predicted and actual rides
+
+</p>
+
+</div>
 
 The relationship is looking very linear which means that predicted
 values are close to the actual values. The model can be used to predict
@@ -408,7 +443,7 @@ Scotts Valley, CA: CreateSpace.
 Virtanen, Pauli, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler
 Reddy, David Cournapeau, Evgeni Burovski, et al. 2019. “SciPy
 1.0–Fundamental Algorithms for Scientific Computing in Python.” *arXiv
-E-Prints*, July, arXiv:1907.10121. <http://arxiv.org/abs/1907.10121>.
+E-Prints*, July, arXiv:1907.10121.
 
 </div>
 

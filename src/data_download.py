@@ -68,8 +68,8 @@ def check_file(file_path):
 def test_error(file_path):
     assert check_file(file_path), "Training file is not generated"
 
-
+test_error(opt["--file_path"])
 
 if __name__ == "__main__":
     main(opt["--file_url"], opt["--file_path"])
-    test_error(opt["--file_path"])
+    

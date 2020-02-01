@@ -25,6 +25,10 @@ opt = docopt(__doc__)
 
 def main(input_file, output_path):
     
+    # 0. TEST output_path EXISTS
+    if not os.path.exists(output_path):
+        os.makedirs(output_path, exist_ok=True)
+    
     # 1. DESCRIBE THE DATASET
     # The dataset we chose is the Bike Sharing Dataset from 
     # UCI machine learning repository. This dataset contains
@@ -155,6 +159,23 @@ def main(input_file, output_path):
             cmap="GnBu").get_figure().savefig(output_path + "/fig_5_corr.png", dpi=400)
     
     # 8. REFERENCES
+
+def check_file(file_path):
+    """
+    Writing the text file and print success in the file
+    """
+    if not os.path.exists(file_path):
+        os.makedirs(file_path, exist_ok=True)
     
+    file1 = open(file_path + "/success.txt","w")#write mode 
+    file1.write("Succes Download Figures") 
+    file1.close()
+    return os.path.isfile(file_path +  "/success.txt")
+    
+def test_error(file_path):
+    assert check_file(file_path), "Training file is not generated"
+
+test_error(opt["--output_path"])
+
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--output_path"])
