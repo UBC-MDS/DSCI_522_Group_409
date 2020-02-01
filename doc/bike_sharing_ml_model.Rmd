@@ -30,7 +30,27 @@ Here we ask whether we can predict the count of bike rentals on an hourly basis 
 # Methods
 
 ## Data
-The dataset we are using to build a machine learning model is the bike-sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset. The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. 
+The dataset we are using to build a machine learning model is the bike-sharing dataset from UCI Machine Learning Repository. It contains both the hourly and daily data about the numbers of bike rentals in Washington, DC between 2011 and 2012. We would use the hourly dataset, which is more complete and have a greater number of observations than the daily dataset. 
+
+The dataset has 1 target and 16 features, including both time and weather-related information for each hour on a specific day. All the features and target are listed below:
+
+1. `instant`: Record index  
+2. `dteday`: Date  
+3. `season`: Season (1:spring, 2:summer, 3:fall, 4:winter)  
+4. `yr`: Year (0: 2011, 1:2012)  
+5. `mnth`: Month  
+6. `hr`: Hour  
+7. `holiday`: (0: No, 1: Yes)  
+8. `weekday`: Day of the week (starting from 0: Sunday)  
+9. `workingday`: (0: No, 1: Yes)  
+10. `weathersit`:  (1: Clear, Few clouds, Partly cloudy, Partly cloudy. 2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist. 3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds. 4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog)  
+11. `temp`: Normalized temperature in Celsius  
+12. `atemp`: Normalized feeling temperature in Celsius  
+13. `hum`: Normalized humidity  
+14. `windspeed`: Normalized wind speed  
+15. `casual`: count of casual users  
+16. `registered`: count of registered users  
+17. `cnt`: count of total rental bikes including both casual and registered  
 
 The dataset was created by Dr. Hadi [@hadi] from the Laboratory of Artificial Intelligence and Decision Support (LIAAD), at the [@uic_repo].
 
