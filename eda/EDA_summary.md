@@ -794,12 +794,22 @@ predict the future demand of bike rentals, so we start our analysis with
 a faceted plot comparing the temperature with the number of rented
 bikes, by
 weekday.  
-<img src="../img/fig_2_temp.png" title="Figure 2. Analysis of temperatures by weekday" alt="Figure 2. Analysis of temperatures by weekday" width="90%" />
-<br> **Observations:** In general, the demand for rental bikes increases
-when the weather is warmer and decreases when the temperature is lower;
-this particular behaviour is more observed on weekends. Also, from this
-comparison, we can see that more bikes are rented on weekdays, probably
-because people commute to their work or school.
+<img src="../img/fig_2_temp.png" title="Figure 2. Analysis of temperatures by weekday" alt="Figure 2. Analysis of temperatures by weekday" width="70%" />
+<br>
+
+In the previous figure we identify a different behaviour for bike
+rentals, so we decide to make a complementary plot of the numbers of
+rented bikes comparing the tempture by
+workingdays.
+
+<img src="../img/fig_2b_workingday.png" title="Figure 2 b. Analysis of temperatures by workingdays" alt="Figure 2 b. Analysis of temperatures by workingdays" width="90%" />
+
+**Observations:** In general, the demand for rental bikes increases when
+the weather is warmer and decreases when the temperature is lower; this
+particular behaviour is more observed on weekends and also in
+workingdays. From the comparison of the first plot, we can see that more
+bikes are rented on weekdays, probably because people commute to their
+work or school, which is verified with the second plot.
 
 ## 7.2 Analysis of hour and weekday on bike rental count
 
@@ -817,13 +827,13 @@ the weekends people use the rental bikes between 11 and 16 hours.
 In the other hand, the time with the lowest demand of rental bikes is
 between 1 and 5 hr. everyday.
 
-## 7.3 Analysis of weather and humidity on demand for rental bikes
+## 7.3 Analysis of weather on demand for rental bikes
 
 To rent or not to rent a bike, that is the question. And the answer
 would not be only based on temperature, day and time, but also it would
-be important to think about weather and humidity, because is not the
-same to ride a bike on a sunny day than in a rainy one.
-<img src="../img/fig_4_weather.png" title="Figure 4. Analysis of weather and humidity" alt="Figure 4. Analysis of weather and humidity" width="80%" />
+be important to think about weather, because is not the same to ride a
+bike on a sunny day than in a rainy one.
+<img src="../img/fig_4b_weather_2.png" title="Figure 4. Analysis of weather and humidity" alt="Figure 4. Analysis of weather and humidity" width="80%" />
 <br> **Observations**: To understand the previous graphs it will be
 important to remmember that the weather (`weathersit`) with number 1 is
 related to a mainly sunny day, while 2 recalls a misty day, a 3 would
@@ -832,9 +842,7 @@ ice.
 In general we could see that people preffer to ride the rental bikes in
 sunny days, followed by days with mist, and few people rent then on days
 with light rain, and as it is logic almost nobody rent bikes on days
-with heavy rain or snow.  
-In the other hand, we can observe the demand for bike rental increases
-in days less humid.
+with heavy rain or snow.
 
 ## 7.4 Correlation matrix
 

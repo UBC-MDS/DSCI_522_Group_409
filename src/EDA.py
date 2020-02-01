@@ -1,5 +1,5 @@
 # author: Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian 
-# date: 2020-01-22
+# date: 2020-01-31
 
 '''This script takes a document with it's filepath and returns a file
 with the the Exploratory Data Analysis (EDA) in the desired folder.
@@ -24,6 +24,21 @@ import requests, io, os
 opt = docopt(__doc__)
 
 def main(input_file, output_path):
+    """
+    Returns the figures that will be used in the EDA document.
+        
+    Parameters:
+    ------
+    input_file: string
+    name of the csv file that will be used, and its location. 
+    
+    output_path: string
+    path where the figures will be stored
+    
+    Returns:
+    -------
+    figures for the EDA: plots in .png format and .csv file.
+    """
     
     # 0. TEST output_path EXISTS
     if not os.path.exists(output_path):
@@ -121,6 +136,26 @@ def main(input_file, output_path):
             ).configure_title(fontSize=17)
     chart_temp.save(output_path + "/fig_2_temp.png", scale_factor=2.0)
     
+    # 7.1 b Analysis of temp on bike rental count by workingday
+    order_of_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 
+                     'Friday', 'Saturday', 'Sunday']
+    
+    chart_temp = alt.Chart(bike_data).mark_point(opacity=0.3, size = 4).encode(
+                alt.X('temp:Q'),
+                alt.Y('cnt:Q'),
+                color = alt.Color('workingday:N', legend=None)
+            ).properties(title="Temp vs Bike Rental",
+                        width=200, height=150
+            ).facet(alt.Facet('workingday:N', 
+                              sort = order_of_days),
+                    columns=3
+            ).configure_axisX(labelFontSize=12,
+                            titleFontSize=15
+            ).configure_axisY(labelFontSize=12,
+                            titleFontSize=15
+            ).configure_title(fontSize=17)
+    chart_temp.save(output_path + "/fig_2b_workingday.png", scale_factor=2.0)
+    
     # 7.2 Analysis of hour and weekday on bike rental count
     heat_map = alt.Chart(bike_data_2).mark_rect().encode(
                     x = alt.X("hr:O", 
@@ -152,11 +187,70 @@ def main(input_file, output_path):
             ).configure_title(fontSize=17)
     chart_weather.save(output_path + "/fig_4_weather.png", scale_factor=2.0)
     
+    # 7.3 b Analysis of weather  on demand for rental bikes
+    chart_weather2 = alt.Chart(bike_data, width=150).mark_circle(opacity=0.6, size = 4).encode(
+                x=alt.X(
+                    'jitter:Q',
+                    title=None,
+                    axis=alt.Axis(values=[0], ticks=True, grid=False, labels=False),
+                    scale=alt.Scale()
+                ),
+                y=alt.Y('cnt:Q'),
+                color = alt.Color('weathersit:N', legend=None),
+                column=alt.Column(
+                    'weathersit:N',
+                    header=alt.Header(
+                        labelAngle=-90,
+                        titleOrient='top',
+                        labelOrient='bottom',
+                        labelAlign='right',
+                        labelPadding=3,
+                    ),
+                ),
+            ).transform_calculate(
+                # Generate Gaussian jitter with a Box-Muller transform
+                jitter='sqrt(-2*log(random()))*cos(2*PI*random())'
+            ).configure_facet(
+                spacing=0
+            ).configure_view(
+                stroke=None
+            )
+    chart_weather2.save(output_path + "/fig_4b_weather_2.png", scale_factor=2.0)
+    
     # 7.4 Correlation matrix
-    sns.set(rc={'figure.figsize':(11,11)})
-    corrMatrix = bike_data.corr()
-    sns.heatmap(corrMatrix, annot=True,
-            cmap="GnBu").get_figure().savefig(output_path + "/fig_5_corr.png", dpi=400)
+    corrMatrix_line = bike_data.corr().round(2).reset_index().rename(columns = {'index':'Var1'}).melt(id_vars = ['Var1'],
+                                                                                        value_name = 'Correlation',
+                                                                                        var_name = 'Var2')
+    heatmap = alt.Chart(corrMatrix_line).encode(
+        alt.Y('Var1:N'),
+        alt.X('Var2:N')
+    ).mark_rect().encode(
+         alt.Color('Correlation:Q',
+                    scale=alt.Scale(scheme='viridis'))
+    )
+    text = heatmap.mark_text(baseline='middle').encode(
+        text=alt.Text('Correlation:Q', format='.2'),
+        color=alt.condition(
+            alt.datum.Correlation >= 0.95,
+            alt.value('black'),
+            alt.value('white')
+        )
+    )
+    corrMatrix_chart = (heatmap + text).properties(
+        width = 400,
+        height = 400,
+        title = "Correlation matrix"
+    )
+    corrMatrix_chart.save(output_path + "/fig_5_corr.png", scale_factor=2.0)
+    
+    # sns.set(rc={'figure.figsize':(9,9)})
+    # corrMatrix = bike_data.corr().round(2)
+    # sns.heatmap(corrMatrix, annot=True,
+    #         cmap="GnBu").get_figure().savefig(output_path + "/fig_5_corr.png", dpi=400)
+    # plot_7_4 = sns.heatmap(corrMatrix, annot=True, cmap="GnBu");
+    # plot_7_4.tight_layout()
+    # plot_7_4.savefig(output_path + "/fig_5_corr.png", dpi=400)
+
     
     # 8. REFERENCES
 
@@ -173,6 +267,9 @@ def check_file(file_path):
     return os.path.isfile(file_path +  "/success.txt")
     
 def test_error(file_path):
+    """
+    Writing check for the file path
+    """
     assert check_file(file_path), "Training file is not generated"
 
 test_error(opt["--output_path"])

@@ -1,7 +1,7 @@
 Bike Sharing Machine Learning Model
 ================
 Aman Kumar Garg, Victor Cuspinera-Contreras, Yingping Qian
-24/01/2020 (updated: 2020-01-25)
+24/01/2020 (updated: 2020-01-31)
 
 # Summary
 
@@ -57,38 +57,16 @@ for bikes increases when the weather is warmer and decreases when the
 temperatures are
 lower.
 
-<div class="figure">
-
-<img src="../img/fig_2_temp.png" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
-
-<p class="caption">
-
-Figure 1. Analysis of temperatures by weekday
-
-</p>
-
-</div>
+<img src="../img/fig_2_temp.png" title="Figure 1. Analysis of temperatures by weekday" alt="Figure 1. Analysis of temperatures by weekday" width="65%" />
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
 found that people use bike rentals mainly for work and school on
 weekdays showing the peak of the demand in two times of the day.
-Besides, people use rental bikes between 11 am and 4 pm during
-weekends.
+Besides, people use rental bikes between 11 am and 4 pm during weekends.
 
 <br>
-
-<div class="figure">
-
-<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
-
-<p class="caption">
-
-Figure 2. Analysis per hour and weekday
-
-</p>
-
-</div>
+<img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
 
 ## Analysis
 
@@ -172,9 +150,27 @@ Test.Error
 
 </th>
 
+<th style="text-align:right;">
+
+Train.r2.score
+
+</th>
+
+<th style="text-align:right;">
+
+Test.r2.score
+
+</th>
+
 <th style="text-align:left;">
 
 Best.Parameters
+
+</th>
+
+<th style="text-align:right;">
+
+Computational.Time..sec.
 
 </th>
 
@@ -210,9 +206,27 @@ LinearRegression
 
 </td>
 
+<td style="text-align:right;">
+
+0.3373166
+
+</td>
+
+<td style="text-align:right;">
+
+0.3466707
+
+</td>
+
 <td style="text-align:left;">
 
 {‘normalize’: False}
+
+</td>
+
+<td style="text-align:right;">
+
+0.0585349
 
 </td>
 
@@ -244,9 +258,27 @@ KNN
 
 </td>
 
+<td style="text-align:right;">
+
+0.8421504
+
+</td>
+
+<td style="text-align:right;">
+
+0.8104686
+
+</td>
+
 <td style="text-align:left;">
 
 {‘n\_neighbors’: 15}
+
+</td>
+
+<td style="text-align:right;">
+
+1.2966850
 
 </td>
 
@@ -268,19 +300,37 @@ RandomForest
 
 <td style="text-align:right;">
 
-63.82754
+63.81910
 
 </td>
 
 <td style="text-align:right;">
 
-70.75675
+70.57788
+
+</td>
+
+<td style="text-align:right;">
+
+0.8766221
+
+</td>
+
+<td style="text-align:right;">
+
+0.8465022
 
 </td>
 
 <td style="text-align:left;">
 
-{‘max\_depth’: 10, ‘n\_estimators’: 200}
+{‘max\_depth’: 10, ‘n\_estimators’: 50}
+
+</td>
+
+<td style="text-align:right;">
+
+106.9374828
 
 </td>
 
@@ -290,26 +340,17 @@ RandomForest
 
 </table>
 
-As we can see above, `Random Forest` from (Pedregosa et al. 2011) is the
+As we can see above, `RandomForest` from (Pedregosa et al. 2011) is the
 best model with minimum training and testing error. By hyperparameter
-tuning, we get max depth as 10 and the number of estimators as 100.
+tuning, we get best hyper parameters as `{'max_depth': 10,
+'n_estimators': 50}`.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
 as shown
 below.
 
-<div class="figure">
-
-<img src="../result/feature_importance.png" alt="Figure 3: The plot for importance for predictors." width="85%" />
-
-<p class="caption">
-
-Figure 3: The plot for importance for predictors.
-
-</p>
-
-</div>
+<img src="../result/feature_importance.png" title="Figure 3: The plot for importance for predictors." alt="Figure 3: The plot for importance for predictors." width="85%" />
 
 The variable `hr` is the most important feature to predict bike
 ridership. The second most important feature is `temp`. It is also
@@ -318,20 +359,10 @@ predicting the number of bike rentals.
 
 In order to visualize the results, we also plotted the point graph
 between actual rides and predicted rides. The predicted rides are from
-test data set using the best model i.e `Random
-Forest`.
+test data set using the best model,
+`RandomForest`.
 
-<div class="figure">
-
-<img src="../result/fig_result.png" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
-
-<p class="caption">
-
-Figure 4: The plot for predicted and actual rides
-
-</p>
-
-</div>
+<img src="../result/fig_result.png" title="Figure 4: The plot for predicted and actual rides" alt="Figure 4: The plot for predicted and actual rides" width="85%" />
 
 The relationship is looking very linear which means that predicted
 values are close to the actual values. The model can be used to predict
@@ -340,10 +371,7 @@ the ridership in the future given the input features.
 In order to improve our model further, we can perform more feature
 engineering and can potentially use One hot encoding instead of Label
 encoding on features such as week day and seasons. Then, we can check if
-there is an improvement in the training and testing errors. In addition,
-we can also explore other scoring criteria such as `mean absolute error`
-and `R squared` and see if these scoring techniques can help us make
-better predictions.
+there is an improvement in the training and testing errors.
 
 # References
 
