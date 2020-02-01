@@ -20,8 +20,8 @@ from docopt import docopt
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV, cross_val_score
-
-
+from sklearn.metrics import r2_score
+import time
 import altair as alt
 
 from sklearn.preprocessing import StandardScaler
@@ -131,21 +131,23 @@ def main(input_file_path, output_file_path):
     data_result = pd.DataFrame()
     print ("Tuning Start")
     for i in range(3):
+        t = time.time()
         print(i)
-        train_error, test_error, grid_test_error,best_parameters, y_pred = model_train(model_list[i],parameter_list[i],X_train, 
-                                                                                   y_train, X_test, y_test)
+        train_error, test_error, grid_test_error,best_parameters, y_pred, train_r2_error, test_r2_error = model_train(model_list[i],parameter_list[i],X_train, 
+                                                                                   y_train, X_test, y_test, )
         
         
         data_result = pd.concat([data_result,pd.DataFrame({"model":[model[i]],"test_error":[test_error],
-                                                          "train_error":[train_error],"best_param":[best_parameters],"grid_test_error":[grid_test_error]})])
+                                                          "train_error":[train_error],"test_r2_error":[test_r2_error],"train_r2_error":[train_r2_error],"best_param":[best_parameters],"grid_test_error":[grid_test_error],
+                                                           "Computational Time (sec)":time.time()-t})])
         
         data_combine = pd.concat([data_combine,pd.DataFrame({"y_true_test":y_test,"y_predict":y_pred,
                                     "model":model[i]})])
 
 
     print ("Tuning Finish")
-    data_result = data_result[['model','train_error','test_error','best_param']]
-    data_result.columns = ['Model','Train Error','Test Error','Best Parameters']
+    data_result = data_result[['model','train_error','test_error',"train_r2_error", "test_r2_error",'best_param', "Computational Time (sec)"]]
+    data_result.columns = ['Model','Train Error','Test Error',"Train r2 score", "Test r2 score",'Best Parameters', "Computational Time (sec)"]
 
     data_result.reset_index(inplace = True)
     data_result.to_csv(output_file_path + "/result.csv", index=False)
@@ -183,6 +185,37 @@ def main(input_file_path, output_file_path):
 
 def model_train(model,parameters,X_train, y_train, X_test, y_test):
 
+   
+    """
+    
+    Returns the training and testing errors of the input model on the training and testing data after applying hyperparameter tuning.     
+        
+    Parameters:
+    ------
+    model: object
+    the input ML model
+    
+    X_train : numpy.ndarray
+    the training data
+    y_train : numpy.ndarray
+    the target of training data
+    X_test : numpy.ndarray
+    the validation data
+    y_test : numpy.ndarray
+    the target of validation data
+    
+    mode : str
+    regression or classification
+    
+        
+    Returns:
+    -------
+    training and testing error, r2 score for training and testing, best hyperparameter: (list)
+        
+        
+       
+    """
+
     #Gridsearch
     clf = GridSearchCV(model, parameters, cv=5, scoring = 'neg_mean_squared_error')
     clf.fit(X_train, y_train)
@@ -190,10 +223,14 @@ def model_train(model,parameters,X_train, y_train, X_test, y_test):
     grid_test_error = np.sqrt(-1*clf.score(X_test, y_test))
     train_error = np.sqrt(mean_squared_error(y_train, clf.predict(X_train)))
     test_error = np.sqrt(mean_squared_error(y_test, clf.predict(X_test)))
+
+    train_r2_error = r2_score(y_train, clf.predict(X_train))
+    test_r2_error = r2_score(y_test, clf.predict(X_test))
+    
     best_parameters = str(clf.best_params_)
     
                              
-    return (train_error,test_error,grid_test_error,best_parameters,np.squeeze(clf.predict(X_test)))
+    return (train_error,test_error,grid_test_error,best_parameters,np.squeeze(clf.predict(X_test)), train_r2_error, test_r2_error)
 
 def check_file(file_path):
     """
@@ -210,9 +247,11 @@ def check_file(file_path):
 def test_error(file_path):
     assert check_file(file_path), "Training file is not generated"
 
-    
+
 if __name__ == "__main__":
     main(opt["--input_file_path"], opt["--output_file_path"])
+    test_error(opt["--input_file_path"])
+
 
 
 

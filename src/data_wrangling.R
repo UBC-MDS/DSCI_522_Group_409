@@ -19,7 +19,7 @@ set.seed(2020)
 opt <- docopt(doc)
 main <- function(input, out_dir){
   # Load the data
-  raw_data <- suppressMessages(read_csv(input))
+  raw_data <- read_csv(input)
   
   # Drop the unnecessary columns 
   raw_data <- raw_data %>%
@@ -71,7 +71,7 @@ main <- function(input, out_dir){
   # write training and test data to feather files
   write_csv(training_data, paste0(out_dir, "/training_data.csv"))
   write_csv(test_data, paste0(out_dir, "/test_data.csv"))
-  
+
 }
 
 test_check <- function(out_dir){
