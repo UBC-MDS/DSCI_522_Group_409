@@ -32,7 +32,7 @@ The dataset was created by Dr. Hadi [@hadi] from the Laboratory of Artificial In
 We have performed an explanatory data analysis (EDA), the full report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). In this analysis, we built some visualizations to deep dive the data and found the relationships between different variables, as well as the explanatory variables with a higher correlation with the target variable (number of bikes rented). As we can see from Figure 1. below, the demand for bikes increases when the weather is warmer and decreases when the temperatures are lower.
   
 ```{r, echo=FALSE, fig.cap="Figure 1. Analysis of temperatures by weekday", out.width = '65%'}
-knitr::include_graphics("../img/fig_2_temp.png")
+knitr::include_graphics("../img/fig_2b_workingday.png")
 ```
 
 Another visualization we want to point out is the heatmap outlining how the day of week and hour of day affect the count of bike rental.  We found that people use bike rentals mainly for work and school on weekdays showing the peak of the demand in two times of the day. Besides, people use rental bikes between 11 am and 4 pm during weekends.
@@ -40,6 +40,12 @@ Another visualization we want to point out is the heatmap outlining how the day 
 <br>
 ```{r, echo=FALSE, fig.cap="Figure 2. Analysis per hour and weekday", out.width = '70%'}
 knitr::include_graphics("../img/fig_3_hr.png")
+```
+
+The correlation matrix between features and features, features and target is shown below.
+
+```{r, echo=FALSE, fig.cap="Figure 3. Correlation matrix", out.width = '70%'}
+knitr::include_graphics("../img/fig_5_corr.png")
 ```
 
 ## Analysis
