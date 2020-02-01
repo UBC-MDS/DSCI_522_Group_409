@@ -20,6 +20,21 @@ from sklearn.model_selection import train_test_split
 opt = docopt(__doc__)
 
 def main(file_url, file_path):
+    """
+    Download and unzip the data files from the input link
+        
+    Parameters:
+    ------
+    file_url: string
+        link of the data source 
+    
+    file_path: string
+        path where the data will be stored
+    
+    Returns:
+    -------
+        all the data files from the link
+    """
 
     # extract file from the link
 
@@ -31,27 +46,6 @@ def main(file_url, file_path):
     #unzip the zip file
     z = zipfile.ZipFile(io.BytesIO(r.content))
     z.extractall(path = file_path)
-
-    #input_file_path = file_path + "/hour.csv"
-
-    #read the data
-    
-
-    #rental_input_data_hr = pd.read_csv(input_file_path)
-
-    # split into training and testing
-
-    #X_train, X_test, y_train, y_test = train_test_split(rental_input_data_hr.drop(columns=['cnt']), 
-    #                                                rental_input_data_hr[['cnt']], 
-    #                                                test_size=0.20, 
-    #                                                random_state=100)
-
-    # save the splitted files
-    #X_train.to_csv(file_path +  "/train.csv", index=False)
-    #X_test.to_csv(file_path +  "/test.csv", index=False)
-    #y_train.to_csv(file_path + "/train_target.csv", index=False)
-    #y_test.to_csv(file_path  + "/test_target.csv", index=False)
-
     
 def check_file(file_path):
     """
@@ -66,10 +60,22 @@ def check_file(file_path):
     return os.path.isfile(file_path +  "/success.txt")
 
 def test_error(file_path):
+    """
+    tests whether the files have been downloaded successfully
+        
+    Parameters:
+    ------
+    file_path: string
+        path where the data will be stored
+    
+    Returns:
+    -------
+        a success.txt will be generated if the files are downloaded successfully
+    """
     assert check_file(file_path), "Training file is not generated"
-
-test_error(opt["--file_path"])
 
 if __name__ == "__main__":
     main(opt["--file_url"], opt["--file_path"])
+
+test_error(opt["--file_path"])
     
