@@ -104,8 +104,8 @@ def main(input_file, output_path):
     bike_data_2 = bike_data.groupby(['weekday', 'hr']).mean().reset_index()
     bike_data3 = bike_data
     bike_data3['workingday'] = bike_data3['workingday'].replace(
-        {0: 'no',
-         1: 'yes'})
+        {0: 'Not a working day',
+        1: 'Working day'})
     bike_data3['weathersit'] = bike_data3['weathersit'].replace(
         {1: '1 (mainly sunny)',
          2: '2 (misty day)',
@@ -129,7 +129,7 @@ def main(input_file, output_path):
     order_of_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 
                      'Friday', 'Saturday', 'Sunday']
     
-    chart_temp = alt.Chart(bike_data).mark_point(opacity=0.3, size = 4).encode(
+    chart_temp = alt.Chart(bike_data).mark_point(opacity=0.2, size = 4).encode(
                 x = alt.X('temp:Q',
                     title = "Temperature"),
                 y = alt.Y('cnt:Q',
@@ -138,7 +138,8 @@ def main(input_file, output_path):
             ).properties(title="Tempperature vs Bike Rental",
                         width=200, height=150
             ).facet(alt.Facet('weekday:N', 
-                              sort = order_of_days),
+                              sort = order_of_days,
+                              title=None),
                     columns=3
             ).configure_axisX(labelFontSize=12,
                             titleFontSize=15
@@ -160,7 +161,8 @@ def main(input_file, output_path):
             ).properties(title="Temp vs Bike Rental",
                         width=200, height=150
             ).facet(alt.Facet('workingday:N', 
-                              sort = order_of_days),
+                              sort = order_of_days,
+                              title=None),
                     columns=3
             ).configure_axisX(labelFontSize=12,
                             titleFontSize=15
@@ -178,7 +180,8 @@ def main(input_file, output_path):
                         sort=order_of_days,
                         title = "Day of Week"),
                     color=alt.Color('cnt:Q', 
-                                    legend=alt.Legend(title = "counts")),
+                                    legend=alt.Legend(title = "counts"),
+                                    scale=alt.Scale(zero=True)),
                     tooltip=['weekday', 'hr', 'cnt']
                 ).properties(title = "Count of bike rental by Hour and Day in Washington, DC")
     heat_map.save(output_path + "/fig_3_hr.png", scale_factor=2.0)

@@ -9,7 +9,7 @@ Here we attempt to build a regression machine learning model using the
 Random Forest Regressor algorithm which predicts the count of bike
 rentals based on the time and weather-related information. Our final
 model performed fairly well on an unseen test data set, with the mean
-square error of `70.52` and a visually linear relationship between
+square error of `70.54` and a visually linear relationship between
 actual and predicted values. However, the variance of predicted values
 becomes larger as the actual count of bike rentals increases, which
 indicates there are incorrectness in the model when the prediction is
@@ -84,54 +84,22 @@ for bikes increases when the weather is warmer and decreases when the
 temperatures are
 lower.
 
-<div class="figure">
-
-<img src="../img/fig_2b_workingday.png" alt="Figure 1. Analysis of temperatures by workingday" width="65%" />
-
-<p class="caption">
-
-Figure 1. Analysis of temperatures by workingday
-
-</p>
-
-</div>
+<img src="../img/fig_2b_workingday.png" title="Figure 1. Analysis of temperatures by workingday" alt="Figure 1. Analysis of temperatures by workingday" width="65%" />
 
 Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
 found that people use bike rentals mainly for work and school on
 weekdays showing the peak of the demand in two times of the day.
-Besides, people use rental bikes between 11 am and 4 pm during
-weekends.
+Besides, people use rental bikes between 11 am and 4 pm during weekends.
 
 <br>
-
-<div class="figure">
-
-<img src="../img/fig_3_hr.png" alt="Figure 2. Analysis per hour and weekday" width="70%" />
-
-<p class="caption">
-
-Figure 2. Analysis per hour and weekday
-
-</p>
-
-</div>
+<img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
 
 The correlation matrix between features, including the target variable,
 is shown
 below.
 
-<div class="figure">
-
-<img src="../img/fig_5_corr.png" alt="Figure 3. Correlation matrix" width="70%" />
-
-<p class="caption">
-
-Figure 3. Correlation matrix
-
-</p>
-
-</div>
+<img src="../img/fig_5_corr.png" title="Figure 3. Correlation matrix" alt="Figure 3. Correlation matrix" width="70%" />
 
 ## Analysis
 
@@ -291,7 +259,7 @@ LinearRegression
 
 <td style="text-align:right;">
 
-0.073951
+0.1224899
 
 </td>
 
@@ -343,7 +311,7 @@ KNN
 
 <td style="text-align:right;">
 
-1.381370
+2.7117610
 
 </td>
 
@@ -365,25 +333,25 @@ RandomForest
 
 <td style="text-align:right;">
 
-63.84562
+63.66414
 
 </td>
 
 <td style="text-align:right;">
 
-70.52235
+70.54177
 
 </td>
 
 <td style="text-align:right;">
 
-0.8765196
+0.8772206
 
 </td>
 
 <td style="text-align:right;">
 
-0.8467437
+0.8466593
 
 </td>
 
@@ -395,7 +363,7 @@ RandomForest
 
 <td style="text-align:right;">
 
-111.805956
+235.2399738
 
 </td>
 
@@ -415,17 +383,7 @@ regression. We have plotted the feature importance for all the features
 as shown
 below.
 
-<div class="figure">
-
-<img src="../result/feature_importance.png" alt="Figure 4: The plot for importance for predictors." width="85%" />
-
-<p class="caption">
-
-Figure 4: The plot for importance for predictors.
-
-</p>
-
-</div>
+<img src="../result/feature_importance.png" title="Figure 4: The plot for importance for predictors." alt="Figure 4: The plot for importance for predictors." width="85%" />
 
 The variable `hr` is the most important feature to predict bike
 ridership. The second most important feature is `temp`. It is also
@@ -437,17 +395,7 @@ between actual rides and predicted rides. The predicted rides are from
 test data set using the best model,
 `RandomForest`.
 
-<div class="figure">
-
-<img src="../result/fig_result.png" alt="Figure 5: The plot for predicted and actual rides" width="85%" />
-
-<p class="caption">
-
-Figure 5: The plot for predicted and actual rides
-
-</p>
-
-</div>
+<img src="../result/fig_result.png" title="Figure 5: The plot for predicted and actual rides" alt="Figure 5: The plot for predicted and actual rides" width="85%" />
 
 The relationship is looking very linear which means that predicted
 values are close to the actual values. The model can be used to predict
