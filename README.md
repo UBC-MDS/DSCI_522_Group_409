@@ -33,6 +33,11 @@ To reset the repo to a clean state, with no intermediate or results files, run t
 make clean
 ```
 
+## Dependency diagram of the Makefile
+![image](./img/Makefile.png)
+
+
+
 ## Dependencies
 - Python 3.7.3 and Python packages:
   - pandas==0.24.2  
