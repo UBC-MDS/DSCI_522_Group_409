@@ -9,7 +9,7 @@ Here we attempt to build a regression machine learning model using the
 Random Forest Regressor algorithm which predicts the count of bike
 rentals based on the time and weather-related information. Our final
 model performed fairly well on an unseen test data set, with the mean
-square error of `70.58` and a visually linear relationship between
+square error of `70.54` and a visually linear relationship between
 actual and predicted values. However, the variance of predicted values
 becomes larger as the actual count of bike rentals increases, which
 indicates there are incorrectness in the model when the prediction is
@@ -253,13 +253,13 @@ LinearRegression
 
 <td style="text-align:left;">
 
-{‘normalize’: False}
+{‘normalize’: True}
 
 </td>
 
 <td style="text-align:right;">
 
-0.09
+0.11
 
 </td>
 
@@ -311,7 +311,7 @@ KNN
 
 <td style="text-align:right;">
 
-2.32
+1.66
 
 </td>
 
@@ -333,13 +333,13 @@ RandomForest
 
 <td style="text-align:right;">
 
-63.76
+64.09
 
 </td>
 
 <td style="text-align:right;">
 
-70.58
+70.54
 
 </td>
 
@@ -357,13 +357,13 @@ RandomForest
 
 <td style="text-align:left;">
 
-{‘max\_depth’: 10, ‘n\_estimators’: 200}
+{‘max\_depth’: 10, ‘n\_estimators’: 50}
 
 </td>
 
 <td style="text-align:right;">
 
-128.91
+122.12
 
 </td>
 
@@ -376,7 +376,7 @@ RandomForest
 As we can see above, `RandomForest` from Scikit-learn (Pedregosa et al.
 2011) is the best model with minimum training and testing error. By
 hyperparameter tuning, we get best hyper parameters as
-`{'max_depth': 10, 'n_estimators': 200}`.
+`{'max_depth': 10, 'n_estimators': 50}`.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
