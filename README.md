@@ -34,7 +34,7 @@ make clean
 ```
 
 ## Dependency diagram of the Makefile
-![image](./img/Makefile.png)
+![image](Makefile.png)
 
 
 
