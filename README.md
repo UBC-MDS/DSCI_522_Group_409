@@ -22,7 +22,7 @@ The dataset was created by Dr. Hadi (Fanaee-T 2013) from the Laboratory of Artif
 The final report can be found [here](https://ubc-mds.github.io/DSCI_522_Group_409/doc/bike_sharing_ml_model.html
 )
 
-## Usage
+## Usage without docker
 To replicate the analysis, clone this GitHub repository, install the [dependencies](#dependencies) listed below, and run the following command at the command line/terminal from the root directory of this project. Please note this process will take few minutes:
 ```
 make all
@@ -32,6 +32,17 @@ To reset the repo to a clean state, with no intermediate or results files, run t
 ```
 make clean
 ```
+
+## Usage with docker
+
+To run this analysis using Docker, clone/download this repository, use the command line to navigate to the root of this project on your computer, and then type the following (filling in PATH_ON_YOUR_COMPUTER with the absolute path to the root of this project on your computer).
+
+`docker run --rm -v PATH_ON_YOUR_COMPUTER:/home/data_analysis aman1234/group409:v1.0 make -C /home/data_analysis all`
+
+To clean up the analysis type:
+
+`docker run --rm -v PATH_ON_YOUR_COMPUTER:/home/data_analysis aman1234/group409:v1.0 make -C /home/data_analysis clean`
+
 
 ## Dependency diagram of the Makefile
 ![image](Makefile.png)
