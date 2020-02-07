@@ -154,9 +154,9 @@ def main(input_file_path, output_file_path):
                                                                                    y_train, X_test, y_test, )
         
         
-        data_result = pd.concat([data_result,pd.DataFrame({"model":[model[i]],"test_error":[test_error],
-                                                          "train_error":[train_error],"test_r2_error":[test_r2_error],"train_r2_error":[train_r2_error],"best_param":[best_parameters],"grid_test_error":[grid_test_error],
-                                                           "Computational Time (sec)":time.time()-t})])
+        data_result = pd.concat([data_result,pd.DataFrame({"model":[model[i]],"test_error":[round(test_error,2)],
+                                                          "train_error":[round(train_error, 2)],"test_r2_error":[round(test_r2_error, 2)],"train_r2_error":[round(train_r2_error, 2)],"best_param":[best_parameters],"grid_test_error":[grid_test_error],
+                                                           "Computational Time (sec)":round(time.time()-t,2)})])
         
         data_combine = pd.concat([data_combine,pd.DataFrame({"y_true_test":y_test,"y_predict":y_pred,
                                     "model":model[i]})])

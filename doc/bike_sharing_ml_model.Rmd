@@ -62,7 +62,7 @@ knitr::include_graphics("../img/fig_2b_workingday.png")
 
 Another visualization we want to point out is the heatmap outlining how the day of week and hour of day affect the count of bike rental.  We found that people use bike rentals mainly for work and school on weekdays showing the peak of the demand in two times of the day. Besides, people use rental bikes between 11 am and 4 pm during weekends.
 
-<br>
+
 ```{r, echo=FALSE, fig.cap="Figure 2. Analysis per hour and weekday", out.width = '70%'}
 knitr::include_graphics("../img/fig_3_hr.png")
 ```
@@ -92,9 +92,12 @@ h <- results[[7]][3]
 test_err <- results$Test.Error[3]
 ```
 
+
 As we can see above, ``r toString(m)`` from Scikit-learn [@scikit] is the best model with minimum training and testing error. By hyperparameter tuning, we get best hyper parameters as ``r toString(h)``. 
 
+
 It is possible to see the feature importance through random forest regression. We have plotted the feature importance for all the features as shown below.
+
 
 
 ```{r, echo=FALSE, fig.cap="Figure 4: The plot for importance for predictors.", out.width = '85%'}

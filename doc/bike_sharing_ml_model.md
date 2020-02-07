@@ -9,7 +9,7 @@ Here we attempt to build a regression machine learning model using the
 Random Forest Regressor algorithm which predicts the count of bike
 rentals based on the time and weather-related information. Our final
 model performed fairly well on an unseen test data set, with the mean
-square error of `70.45` and a visually linear relationship between
+square error of `70.54` and a visually linear relationship between
 actual and predicted values. However, the variance of predicted values
 becomes larger as the actual count of bike rentals increases, which
 indicates there are incorrectness in the model when the prediction is
@@ -90,9 +90,9 @@ Another visualization we want to point out is the heatmap outlining how
 the day of week and hour of day affect the count of bike rental. We
 found that people use bike rentals mainly for work and school on
 weekdays showing the peak of the demand in two times of the day.
-Besides, people use rental bikes between 11 am and 4 pm during weekends.
+Besides, people use rental bikes between 11 am and 4 pm during
+weekends.
 
-<br>
 <img src="../img/fig_3_hr.png" title="Figure 2. Analysis per hour and weekday" alt="Figure 2. Analysis per hour and weekday" width="70%" />
 
 The correlation matrix between features, including the target variable,
@@ -229,37 +229,37 @@ LinearRegression
 
 <td style="text-align:right;">
 
-147.90577
+147.91
 
 </td>
 
 <td style="text-align:right;">
 
-145.60746
+145.61
 
 </td>
 
 <td style="text-align:right;">
 
-0.3373166
+0.34
 
 </td>
 
 <td style="text-align:right;">
 
-0.3466707
+0.35
 
 </td>
 
 <td style="text-align:left;">
 
-{‘normalize’: False}
+{‘normalize’: True}
 
 </td>
 
 <td style="text-align:right;">
 
-0.1063337
+0.11
 
 </td>
 
@@ -281,25 +281,25 @@ KNN
 
 <td style="text-align:right;">
 
-72.18613
+72.19
 
 </td>
 
 <td style="text-align:right;">
 
-78.42565
+78.43
 
 </td>
 
 <td style="text-align:right;">
 
-0.8421504
+0.84
 
 </td>
 
 <td style="text-align:right;">
 
-0.8104686
+0.81
 
 </td>
 
@@ -311,7 +311,7 @@ KNN
 
 <td style="text-align:right;">
 
-1.7245462
+1.66
 
 </td>
 
@@ -333,37 +333,37 @@ RandomForest
 
 <td style="text-align:right;">
 
-63.70425
+64.09
 
 </td>
 
 <td style="text-align:right;">
 
-70.44974
+70.54
 
 </td>
 
 <td style="text-align:right;">
 
-0.8770658
+0.88
 
 </td>
 
 <td style="text-align:right;">
 
-0.8470591
+0.85
 
 </td>
 
 <td style="text-align:left;">
 
-{‘max\_depth’: 10, ‘n\_estimators’: 200}
+{‘max\_depth’: 10, ‘n\_estimators’: 50}
 
 </td>
 
 <td style="text-align:right;">
 
-128.7593706
+122.12
 
 </td>
 
@@ -376,7 +376,7 @@ RandomForest
 As we can see above, `RandomForest` from Scikit-learn (Pedregosa et al.
 2011) is the best model with minimum training and testing error. By
 hyperparameter tuning, we get best hyper parameters as
-`{'max_depth': 10, 'n_estimators': 200}`.
+`{'max_depth': 10, 'n_estimators': 50}`.
 
 It is possible to see the feature importance through random forest
 regression. We have plotted the feature importance for all the features
