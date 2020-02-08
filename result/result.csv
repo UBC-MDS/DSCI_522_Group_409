@@ -1,4 +1,4 @@
 index,Model,Train Error,Test Error,Train r2 score,Test r2 score,Best Parameters,Computational Time (sec)
-0,LinearRegression,147.91,145.61,0.34,0.35,{'normalize': True},0.11
-0,KNN,72.19,78.43,0.84,0.81,{'n_neighbors': 15},1.66
-0,RandomForest,64.09,70.54,0.88,0.85,"{'max_depth': 10, 'n_estimators': 50}",122.12
+0,LinearRegression,147.91,145.61,0.34,0.35,{'normalize': False},0.09
+0,KNN,72.19,78.43,0.84,0.81,{'n_neighbors': 15},1.51
+0,RandomForest,63.88,70.71,0.88,0.85,"{'max_depth': 10, 'n_estimators': 50}",127.88

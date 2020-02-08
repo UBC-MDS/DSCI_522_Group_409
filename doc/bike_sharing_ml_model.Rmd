@@ -56,7 +56,7 @@ The dataset was created by Dr. Hadi [@hadi] from the Laboratory of Artificial In
 
 We have performed an explanatory data analysis (EDA), the full report can be found [here](https://github.com/UBC-MDS/DSCI_522_Group_409/blob/master/eda/EDA_summary.md). In this analysis, we built some visualizations to deep dive the data and found the relationships between different variables, as well as the explanatory variables with a higher correlation with the target variable (number of bikes rented). As we can see from Figure 1. below, the demand for bikes increases when the weather is warmer and decreases when the temperatures are lower.
   
-```{r, echo=FALSE, fig.cap="Figure 1. Analysis of temperatures by workingday", out.width = '65%'}
+```{r echo=FALSE, fig.cap="Figure 1. Analysis of temperatures by workingday", out.width = '65%'}
 knitr::include_graphics("../img/fig_2b_workingday.png")
 ```
 
